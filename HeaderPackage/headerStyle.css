@@ -1,0 +1,94 @@
+/*Header -----------------------------------------------------------*/
+
+header{
+    width: 100%;
+    height: fit-content;
+    background-color: #529ce8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+#csaHeaderTitle{
+    font-size: 1.3em;
+    margin: 0;
+    padding: .8em;
+}
+#csaHeaderTitle h1{
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+#navContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 30px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #529ce8;
+}
+#navContainer nav{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    position: relative;
+    left: -50px;
+}
+#navContainer nav a{
+    font-size: 1.15em;
+    text-decoration: none;
+    color: #ffffff;
+
+}
+#userInformation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+}
+#userProfile{
+    width: 4em;
+    height: 4em;
+    border-radius: 100%;
+    background-color: #242a46;
+}
+#userLoginLogout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin: 0 15px;
+}
+#userLoginLogout h1{
+    font-size: 1.4em;
+    color: #ffffff;
+    margin: 0;
+}
+#userLoginLogout a{
+    color: #ffffff;
+    font-size: 1.2em;
+}
+#addToCart{
+    width: 12%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 30px;
+}
+#addToCart a{
+    font-size: 1.2em;
+    color: #ffffff;
+    text-decoration: none;
+}
+#addToCart span{
+    font-size: 1.4em;
+    position: relative;
+    top: 5px;
+    left: 2px;
+}

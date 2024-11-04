@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(251.9deg, rgba(241, 247, 255, 1.00) 0%, rgba(222, 219, 234, 1.00) 100%);
+}
+
+/* Form Style --------------------------------------------------------------------------------------*/
+
+.backIcon{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    font-size: 2em;
+    cursor: pointer;
+}
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formTitle{
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px 50px 20px 50px;
+}
+.formTitle h1{
+    font-size: 3em;
+    color: #529ce8;
+}
+.formTitle p{
+    font-size: 1.3em;
+}
+.inputBox{
+    width: 30em;
+    border-bottom: solid 1px #242a46;
+    margin: 50px 50px 0 50px;
+}
+.inputBox input{
+    width: 100%;
+    height: 2.5em;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    color: #242a46;
+}
+.inputBox label{
+    position: absolute;
+    left: 4.1em;
+    transform: translateY(10px);
+    font-size: 1.2em;
+    color: #4f4f52;
+    pointer-events: none;
+    transition: .3s;
+}
+.inputBox input:valid~label,
+.inputBox input:focus~label{
+    transform: translateY(-25px);
+    color: #242a46;
+}
+.inputIcon{
+    position: absolute;
+    right: 3.5em;
+    transform: translateY(15px);
+    font-size: 1.5em;
+}
+.submitBTN{
+    margin: 70px 70px 30px 70px;
+    width: 85%;
+    height: 60px;
+    background-color: #529ce8;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: 550;
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition: .3s;
+}
+.submitBTN:hover{
+    background-color: #86baff;
+    box-shadow: 0 0 10px #86baff;
+}
+.loginOrRegister{
+    font-size: 1.2em;
+    color: #242a46;
+    margin-bottom: 20px;
+}
+.loginOrRegister a{
+    color: #254576;
+    font-weight: 550;
+    transition: .3s;
+}
+.loginOrRegister a:hover{
+    color: #6587b9;
+}
+
+/* Login Register Container -------------------------------------------------------------------------------*/
+
+#loginContainer{
+    width: 40em;
+    height: auto;
+    padding: 20px 50px 40px 50px;
+    background: linear-gradient(180deg, rgba(249, 251, 255, 1.00) 0%, rgba(240, 245, 255, 1.00) 67.5000011920929%, rgba(235, 253, 255, 1.00) 84.50000286102295%, rgba(231, 232, 254, 1.00) 100%);
+    box-shadow: 0 0 15px rgba(31, 32, 43, 0.71);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 80%;
+    backdrop-filter: blur(10px);
+    transition: all .5s ease-in-out;
+}
+#registerContainer{
+    width: 40em;
+    height: auto;
+    padding: 20px 50px 40px 50px;
+    background: linear-gradient(180deg, rgba(249, 251, 255, 1.00) 0%, rgba(240, 245, 255, 1.00) 67.5000011920929%, rgba(235, 253, 255, 1.00) 84.50000286102295%, rgba(231, 232, 254, 1.00) 100%);
+    box-shadow: 0 0 15px rgba(31, 32, 43, 0.71);
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    backdrop-filter: blur(10px);
+    transition: all .5s ease-in-out;
+}

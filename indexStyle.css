@@ -9,84 +9,41 @@ body{
     overflow-x: hidden;
 }
 
-/*Header -----------------------------------------------------------*/
-
-header{
+#headerStyle, #navigationStyle{
+    font-size: 0;
+    display: block;
     width: 100%;
-    height: 5em;
-    background-color: #529ce8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: auto;
+    overflow-y: hidden;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
-#headerTitle{
-    font-size: 1.3em;
+#headerStyle{
     position: relative;
-    top: -16px;
+    top: 0;
 }
-#headerTitle h1{
-    color: #ffffff;
-}
-#navContainer{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em 30px;
+#navigationStyle{
     position: sticky;
     top: 0;
     z-index: 999;
-    background-color: #529ce8;
 }
-#navContainer nav{
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#navContainer nav a{
-    font-size: 1.15em;
-    text-decoration: none;
-    color: #ffffff;
-
-}
-.socialMedia{
-    width: 12%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    left: 30px;
-}
-.socialMedia a{
-    font-size: 1.5em;
-    color: #ffffff;
-}
-#addToCart{
-    width: 12%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    right: 30px;
-}
-#addToCart a{
-    font-size: 1.2em;
-    color: #ffffff;
-    text-decoration: none;
-}
-#addToCart span{
-    font-size: 1.4em;
-    position: relative;
-    top: 5px;
-    left: 2px;
+#footerStyle{
+    font-size: 0;
+    display: block;
+    width: 100%;
+    overflow-y: hidden;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 /*Landing Page ---------------------------------------------------*/
 
 #landingPage{
     width: 100%;
-    height: 75vh;
-
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* Main -------------------------------------------------------------*/
@@ -94,7 +51,7 @@ header{
 #mainContainer{
     width: 100%;
     height: 100%;
-    margin: 120px 100px;
+    margin: 150px 100px;
     display: flex;
 }
 #mainLeft{
@@ -112,7 +69,7 @@ header{
     position: relative;
     top: -20px;
 }
-#loginBTN{
+#menuBTN{
     width: 10em;
     height: 3em;
     display: flex;
@@ -129,7 +86,7 @@ header{
     top: 20px;
     transition: .4s;
 }
-#loginBTN:hover{
+#menuBTN:hover{
     background-color: #86baff;
 }
 #mainRight{
@@ -156,6 +113,7 @@ header{
     flex-direction: column;
     align-items: center;
     padding: 3em 0;
+    overflow-y: auto;
 }
 #bestProductTitle{
     text-align: center;
