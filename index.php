@@ -13,6 +13,8 @@
 
 <!--    Icon Link ---------------------------------------------------->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
+    <link rel="stylesheet" href="Footer/footerPageStyle.css">
 
 <!--    CSS -->
     <link rel="stylesheet" href="indexStyle.css">
@@ -20,31 +22,12 @@
     <title> Kriuk Berbuah </title>
 </head>
 <body>
-    <header>
-        <div id="headerTitle">
-            <h1> KRIUK BERBUAH </h1>
-        </div>
-    </header>
-    <div id="navContainer">
-        <div id="userInformation">
-            <div id="userProfile"></div>
-            <div id="userLoginLogout">
-                <h1> Pengunung </h1>
-                <a href="LoginPage/loginPage.html"> Login </a>
-            </div>
-        </div>
-        <nav>
-            <a href="#"> Beranda </a>
-            <a href="#"> Tentang Kami </a>
-            <a href="#"> Produk </a>
-            <a href="#"> Toko </a>
-            <a href="#"> Galeri </a>
-            <a href="#"> FAQ </a>
-        </nav>
-        <div id="addToCart">
-            <a href="#"> Keranjang <span> <i class='bx bx-cart'></i> </span> </a>
-        </div>
-    </div>
+    <?php
+        include_once 'HeaderPackage/headerPage.php';
+        include_once 'HeaderPackage/navigationPage.php';
+    ?>
+
+
     <section id="landingPage">
         <main>
             <div id="mainContainer">
@@ -53,7 +36,7 @@
                         <h1> Selamat Datang </h1>
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores delectus enim fugit iste itaque nobis non optio placeat, ratione. Dignissimos nulla optio quisquam sequi. </p>
                     </div>
-                    <a href="#" id="pesanBTN"> Menu </a>
+                    <a href="#" id="menuBTN"> Menu </a>
                 </div>
                 <div id="mainRight">
                     <div id="rightImage">
@@ -127,5 +110,8 @@
         </div>
     </section>
 
+    <?php
+        include_once 'Footer/footerPage.php';
+    ?>
 </body>
 </html>

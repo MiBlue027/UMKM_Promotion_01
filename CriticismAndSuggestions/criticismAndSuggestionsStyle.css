@@ -1,0 +1,130 @@
+*{
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+
+}
+
+#casHeaderBanner {
+    width: 100%;
+    height: 30vh;
+    background-color: #101220;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: -50px;
+}
+
+#csaHeaderTitle{
+
+}
+#csaHeaderTitle h1{
+    font-size: 3em;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    color: #ffffff;
+}
+
+/* Form Content ----------------------------------------------------------------*/
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50em;
+    padding: 4em 0;
+    background: linear-gradient(180deg, rgba(249, 251, 255, 1.00) 0%, rgba(215, 221, 234, 1.00) 67.5000011920929%);
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(16, 18, 32, 0.57);
+    margin: 100px;
+}
+#formTitle{
+    margin-bottom: 2em;
+}
+#formTitle h1{
+    font-size: 2em;
+}
+#formTitle p{
+    font-size: 1.2em;
+    position: relative;
+    top: -15px;
+}
+#formInput{
+    width: 40em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#formInput table{
+    width: 100%;
+}
+.inputBox{
+
+}
+.inputBox input{
+    width: 90%;
+    margin-bottom:  35px;
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+}
+.inputBox label{
+    position: absolute;
+    transform: translateX(-18em) translateY(.5em);
+    color: #4f4f52;
+    transition: .3s;
+
+}
+.messageTAInputBox{
+
+}
+.messageTAInputBox textarea{
+    min-width: 95%;
+    max-width: 30em;
+    min-height: 24em;
+    max-height: 40em;
+    padding: 10px 5px;
+}
+.messageTAInputBox label{
+    position: absolute;
+    transform: translateX(-37.8em) translateY(.5em);
+    color: #65696d;
+    transition: .3s;
+}
+.inputBox input:focus~label,
+.inputBox input:valid~label{
+    transform: translateY(-25px) translateX(-18em);
+    color: #101220;
+}
+
+.messageTAInputBox textarea:focus~label,
+.messageTAInputBox textarea:valid~label{
+    transform: translateY(-25px) translateX(-37.8em);
+    color: #101220;
+}
+#formSubmit{
+    width: 50%;
+    height: 3.5em;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-weight: 550;
+    background-color: #529ce8;
+    border: none;
+    border-radius: 15px;
+    margin: 2em 2em 0 2em;
+}
