@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
-    <!-- Font Start-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font End -->
-    <!-- Style -->
-    <link rel="stylesheet" href="aboutUsStyle.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About Us</title>
+        <!-- Font Start-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet"
+        />
+        <!-- Font End -->
+        <!-- Style -->
+      <link rel="stylesheet" href="aboutUsStyle.css" />
+      <link rel="stylesheet" href="../HeaderPackage/headerStyle.css">
+      <link rel="stylesheet" href="../Footer/footerPageStyle.css">
+
   </head>
   <body>
-    <div class="content">
+
+  <?php
+      include_once '../HeaderPackage/headerPage.php';
+      include_once '../HeaderPackage/navigationPage.php';
+  ?>
+
+
+  <div class="content">
       <!-- About Us Start -->
       <div class="container-about-us">
         <div class="about-us-company">
           <h1>Kriuk Beruah</h1>
           <div class="about-us-company-content">
-            <img src="image/Logo Kriuk Berbuah.png" alt="Gambar logo" />
+            <img src="../Asset/AboutUsAsset/Logo Kriuk Berbuah.png" alt="Gambar logo" />
             <p>
               <span>Oleh Oleh Khas Malang</span><br />
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero ea
@@ -46,7 +56,7 @@
       <div class="reason-container">
         <h1>Kenapa Harus Memilih Kami?</h1>
         <div class="pilihan-buah-lokal">
-          <img src="image/pilihan.png" alt="Buah Lokal" />
+          <img src="../Asset/AboutUsAsset/pilihan.png" alt="Buah Lokal" />
           <p>
             <span>Buah Lokal Pilihan</span><br />
             Kriuk Berbuah menggunakan buah-buahan segar langsung dari daerah
@@ -64,11 +74,11 @@
             pelanggan dapat menikmati beragam rasa buah dalam bentuk camilan
             yang renyah dan lezat.
           </p>
-          <img src="image/rasa.png" alt="Rasa yang Variatif" />
+          <img src="../Asset/AboutUsAsset/rasa.png" alt="Rasa yang Variatif" />
         </div>
 
         <div class="pilihan-harga">
-          <img src="image/terjangkau.png" alt="Harga Terjangkau" />
+          <img src="../Asset/AboutUsAsset/terjangkau.png" alt="Harga Terjangkau" />
           <p>
             <span>Harga Terjangkau</span> <br />
             Sebagai UMKM lokal, kami berkomitmen menghadirkan produk berkualitas
@@ -86,7 +96,7 @@
             atau luar negeri.
           </p>
           <img
-            src="image/oleholeh.png"
+            src="../Asset/AboutUsAsset/oleholeh.png"
             alt="oleh-oleh praktis dan tahan lama"
           />
         </div>
@@ -94,7 +104,7 @@
       <!-- Kenapa Memilih Kami End -->
       <!-- Tentang owner Start-->
       <div class="tentang-owner">
-        <img src="/image/profile.png" alt="Foto owner" />
+        <img src="../Asset/AboutUsAsset/profile.png" alt="Foto owner" />
         <div class="description-owner">
           <p>
             <span>Tentang owner</span> <br />
@@ -118,5 +128,9 @@
       </div>
       <!-- Tentang owner End-->
     </div>
+
+      <?php
+        include_once '../Footer/footerPage.php';
+      ?>
   </body>
 </html>

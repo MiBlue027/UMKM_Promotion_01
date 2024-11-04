@@ -13,11 +13,11 @@
 
 <!--    Icon Link ---------------------------------------------------->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
-    <link rel="stylesheet" href="Footer/footerPageStyle.css">
 
 <!--    CSS -->
     <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
+    <link rel="stylesheet" href="Footer/footerPageStyle.css">
 
     <title> Kriuk Berbuah </title>
 </head>
