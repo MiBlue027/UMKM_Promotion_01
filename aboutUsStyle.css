@@ -150,9 +150,11 @@ p {
   text-align: justify;
   line-height: 1.5em;
 }
-
-.container-about-us {
+.content {
   padding: 15vmax;
+  padding-top: 5vmax;
+}
+.container-about-us {
   padding-bottom: 5vmax;
   box-sizing: border-box;
 }
@@ -179,9 +181,8 @@ p {
 }
 
 .reason-container {
-  padding: 15vmax;
   padding-top: 0;
-  padding-bottom: 5vmax;
+  padding-bottom: 1vmax;
   box-sizing: border-box;
 }
 
@@ -226,4 +227,50 @@ p {
 .pilihan-rasa p,
 .pilihan-praktis p {
   padding-right: 7vmax;
+}
+
+.tentang-owner {
+  display: flex;
+  align-items: center;
+}
+
+.tentang-owner img {
+  width: 100vmax;
+  border-radius: 100%;
+}
+.description-owner {
+  display: flex;
+  margin-left: 5vmax;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 1em;
+}
+
+.description-owner span {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  padding-bottom: 1em;
+}
+
+.description-owner p {
+  line-height: 2em;
+}
+
+.owner-detail {
+  background-color: #34babf;
+  text-align: center;
+  width: fit-content;
+  border-radius: 0.2em;
+}
+
+.owner-detail a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 1.2em;
+  font-weight: 500;
 }
