@@ -232,6 +232,7 @@ p {
 .tentang-owner {
   display: flex;
   align-items: center;
+  margin-bottom: 4vmax;
 }
 
 .tentang-owner img {
@@ -262,6 +263,7 @@ p {
   text-align: center;
   width: fit-content;
   border-radius: 0.2em;
+  transition: 0.3s;
 }
 
 .owner-detail a {
@@ -274,3 +276,90 @@ p {
   font-size: 1.2em;
   font-weight: 500;
 }
+
+.owner-detail:hover {
+  transition: 0.3s;
+  background-color: #57e0e4;
+}
+
+.owner-detail a:hover {
+  color: white;
+}
+
+/* Testimoni Pelanggan Start */
+.testimoni {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.judul-testi {
+  text-align: left;
+  color: #34babf;
+  margin-bottom: 1em;
+}
+
+.testimoni a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.testimoni h3 {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.container-testimoni {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 3vmax;
+}
+
+.container-testimoni img {
+  width: 20%;
+  height: 100%;
+  border: 2px silver solid;
+  border-radius: 1rem;
+  transition: width 0.5s ease-in-out;
+}
+
+.container-testimoni img:hover {
+  width: 55%;
+}
+
+.testimoni-all-button {
+  background-color: #34babf;
+  text-align: center;
+  width: fit-content;
+  border-radius: 0.5em;
+  transition: 0.3s;
+}
+
+.testimoni-all-button a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin-top: 0;
+  padding: 0.8em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.testimoni-all-button:hover {
+  transition: 0.3s;
+  background-color: #57e0e4;
+}
+
+.testimoni-all-button a:hover {
+  color: white;
+}
+
+/* Testimoni Pelanggan End */
