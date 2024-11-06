@@ -36,7 +36,7 @@
             <a href="#"> FAQ </a>
         </nav>
         <div id="addToCart">
-            <a href="#"> Keranjang <span> <i class='bx bx-cart'></i> </span> </a>
+            <a href="/UMKM_Promotion_01/CartView/cart.php"> Keranjang <span> <i class='bx bx-cart'></i> </span> </a>
         </div>
     </div>
 </body>

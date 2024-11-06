@@ -1,6 +1,6 @@
 /*Header -----------------------------------------------------------*/
 
-header{
+#webHeader{
     width: 100%;
     height: fit-content;
     background-color: #529ce8;
@@ -10,12 +10,12 @@ header{
     margin: 0;
     padding: 0;
 }
-#csaHeaderTitle{
+#webHeaderTitle{
     font-size: 1.3em;
     margin: 0;
     padding: .8em;
 }
-#csaHeaderTitle h1{
+#webHeaderTitle h1{
     color: #ffffff;
     margin: 0;
     padding: 0;

@@ -19,8 +19,8 @@
 
 </head>
 <body>
-    <header>
-        <div id="headerTitle">
+    <header id="webHeader">
+        <div id="webHeaderTitle">
             <h1> KRIUK BERBUAH </h1>
         </div>
     </header>
