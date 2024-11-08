@@ -51,13 +51,14 @@ hr {
 
 .accordion-pembelian-pengiriman {
   padding: 1rem;
-  background-color: rgb(204, 245, 245);
+  background-color: rgb(232, 238, 248);
 }
 
 .accordion-content {
   margin: 1em 0 1em 0;
   padding: 0 1em 0 1em;
-  /* display: none; */
+   display: none;
+
 }
 
 .accordion-item {
@@ -66,18 +67,18 @@ hr {
 .accordion-header {
   padding: 1rem;
   font-size: 1rem;
-  background-color: #34babf;
+  background-color: #529ce8;
   display: flex;
   width: 100%;
   text-align: left;
   border: none;
+  cursor: pointer;
+  align-items: center;
 }
-
 .accordion-header p {
   margin-left: 1em;
   color: white;
 }
-
 .accordion-header i {
   color: white;
 }
