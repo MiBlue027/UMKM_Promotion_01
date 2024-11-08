@@ -33,7 +33,7 @@
             <a href="/UMKM_Promotion_01/Product/product.php"> Produk </a>
             <a href="#"> Toko </a>
             <a href="/UMKM_Promotion_01/Gallery/gallery.php"> Galeri </a>
-            <a href="#"> FAQ </a>
+            <a href="/UMKM_Promotion_01/FAQ/faq.php"> FAQ </a>
         </nav>
         <div id="addToCart">
             <a href="/UMKM_Promotion_01/CartView/cart.php"> Keranjang <span> <i class='bx bx-cart'></i> </span> </a>

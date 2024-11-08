@@ -12,20 +12,28 @@
     <!-- boxicon end -->
 
     <!-- style start -->
-    <link rel="stylesheet" href="/style/testimoni.css" />
+    <link rel="stylesheet" href="testimoniStyle.css" />
+      <link rel="stylesheet" href="../../HeaderPackage/headerStyle.css">
+      <link rel="stylesheet" href="../../Footer/footerPageStyle.css">
     <!-- style end -->
   </head>
   <body>
+      <?php
+          include_once '../../HeaderPackage/headerPage.php';
+          include_once '../../HeaderPackage/navigationPage.php';
+      ?>
     <div class="content">
       <div class="testimoni">
-        <img src="/image/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
+            <div id="stars">
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+            </div>
           <p class="date">12-04-2023</p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
@@ -36,21 +44,23 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="/image/dummy-image.png" alt="" />
-            <img src="/image/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="/image/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
+            <div id="stars">
+              <i class="bx bxs-star bx-md"></i>
+              <i class="bx bxs-star bx-md"></i>
+              <i class="bx bxs-star bx-md"></i>
+              <i class="bx bxs-star bx-md"></i>
+              <i class="bx bxs-star bx-md"></i>
+            </div>
           <p class="date">12-04-2023</p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
@@ -61,21 +71,23 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="/image/dummy-image.png" alt="" />
-            <img src="/image/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="/image/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
+            <div id="stars">
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+            </div>
           <p class="date">12-04-2023</p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
@@ -86,21 +98,23 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="/image/dummy-image.png" alt="" />
-            <img src="/image/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="/image/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
-          <i class="bx bxs-star bx-md"></i>
+            <div id="stars">
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+                <i class="bx bxs-star bx-md"></i>
+            </div>
           <p class="date">12-04-2023</p>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
@@ -111,12 +125,15 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="/image/dummy-image.png" alt="" />
-            <img src="/image/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
-      <hr />
+      <hr/>
     </div>
+    <?php
+        include_once '../../Footer/footerPage.php';
+    ?>
   </body>
 </html>

@@ -1,0 +1,84 @@
+*{
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+p {
+  font-size: 1em;
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+#stars i {
+  color: gold;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+.content {
+  padding: 15vmax;
+  padding-top: 5vmax;
+}
+
+.testimoni {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-picture {
+  width: 5vmax;
+  height: 5vmax;
+  border-radius: 100%;
+}
+
+.content-testi {
+  padding-left: 1rem;
+}
+
+.content-testi h3 {
+  padding-bottom: 0.5em;
+}
+
+i {
+  padding-bottom: 0.5rem;
+}
+
+.date {
+  color: silver;
+  font-style: italic;
+  font-size: 1.2em;
+  padding-bottom: 0.5rem;
+}
+
+.content-testi p {
+  padding-bottom: 1rem;
+}
+
+.image-testimoni {
+  display: flex;
+}
+
+.image-testimoni img {
+  width: 10vmax;
+  padding-right: 1rem;
+}

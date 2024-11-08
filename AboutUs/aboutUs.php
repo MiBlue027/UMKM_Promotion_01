@@ -22,8 +22,8 @@
  <body>
 
         <?php
-        include_once '../HeaderPackage/headerPage.php';
-        include_once '../HeaderPackage/navigationPage.php';
+            include_once '../HeaderPackage/headerPage.php';
+            include_once '../HeaderPackage/navigationPage.php';
         ?>
 
 
@@ -122,7 +122,7 @@
                         veritatis libero?
                     </p>
                     <div class="owner-detail">
-                        <a href="ownerDetail.html"> Selengkapnya </a>
+                        <a href="ownerDetail.php"> Selengkapnya </a>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@
                         onmouseout="this.src='../Asset/Testi/A.png'" />
                 </div>
                 <div class="testimoni-all-button">
-                    <a href="testimoni.html">Mau Dengar Lebih Banyak?</a>
+                    <a href="Testimoni/testimoni.php">Mau Dengar Lebih Banyak?</a>
                 </div>
             </div>
             <!-- Testimoni Pelanggan End -->

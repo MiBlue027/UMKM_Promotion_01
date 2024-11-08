@@ -11,10 +11,17 @@
     />
     <!-- boxicon end -->
     <!-- Style Start -->
-    <link rel="stylesheet" href="/style/faq.css" />
+    <link rel="stylesheet" href="faqStyle.css" />
+      <link rel="stylesheet" href="../HeaderPackage/headerStyle.css">
+      <link rel="stylesheet" href="../Footer/footerPageStyle.css">
     <!-- Style End -->
   </head>
   <body>
+      <?php
+          include_once '../HeaderPackage/headerPage.php';
+          include_once '../HeaderPackage/navigationPage.php';
+      ?>
+
     <div class="content">
       <h1>FAQ - Pertanyaan yang Sering Ditanyakan!</h1>
       <div class="accordion-pembelian-pengiriman">
@@ -102,5 +109,9 @@
         </div>
       </div>
     </div>
+
+      <?php
+      include_once '../Footer/footerPage.php';
+      ?>
   </body>
 </html>
