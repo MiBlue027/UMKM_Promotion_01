@@ -19,12 +19,7 @@
     <link rel="stylesheet" href="../Footer/footerPageStyle.css">
     <title>About Us</title>
 </head>
-
-<body>
-
-    </head>
-
-    <body>
+ <body>
 
         <?php
         include_once '../HeaderPackage/headerPage.php';
@@ -139,30 +134,30 @@
                 <h3>Ini kata mereka yang sudah menikmati produk kami.</h3>
                 <div class="container-testimoni">
                     <img
-                        src="/Asset/Testi/J.png"
+                        src="../Asset/Testi/J.png"
                         alt="J"
-                        onmouseover="this.src='/Asset/Testi/1.png'"
-                        onmouseout="this.src='/Asset/Testi/J.png'" />
+                        onmouseover="this.src='../Asset/Testi/1.png'"
+                        onmouseout="this.src='../Asset/Testi/J.png'" />
                     <img
-                        src="/Asset/Testi/U.png"
+                        src="../Asset/Testi/U.png"
                         alt="U"
-                        onmouseover="this.src='/Asset/Testi/2.png'"
-                        onmouseout="this.src='/Asset/Testi/U.png'" />
+                        onmouseover="this.src='../Asset/Testi/2.png'"
+                        onmouseout="this.src='../Asset/Testi/U.png'" />
                     <img
-                        src="/Asset/Testi/A.png"
+                        src="../Asset/Testi/A.png"
                         alt="A"
-                        onmouseover="this.src='/Asset/Testi/3.png'"
-                        onmouseout="this.src='/Asset/Testi/A.png'" />
+                        onmouseover="this.src='../Asset/Testi/3.png'"
+                        onmouseout="this.src='../Asset/Testi/A.png'" />
                     <img
-                        src="/Asset/Testi/R.png"
+                        src="../Asset/Testi/R.png"
                         alt="R"
-                        onmouseover="this.src='/Asset/Testi/5.png'"
-                        onmouseout="this.src='/Asset/Testi/R.png'" />
+                        onmouseover="this.src='../Asset/Testi/5.png'"
+                        onmouseout="this.src='../Asset/Testi/R.png'" />
                     <img
-                        src="/Asset/Testi/A.png"
+                        src="../Asset/Testi/A.png"
                         alt="A"
-                        onmouseover="this.src='/Asset/Testi/6.png'"
-                        onmouseout="this.src='/Asset/Testi/A.png'" />
+                        onmouseover="this.src='../Asset/Testi/6.png'"
+                        onmouseout="this.src='../Asset/Testi/A.png'" />
                 </div>
                 <div class="testimoni-all-button">
                     <a href="testimoni.html">Mau Dengar Lebih Banyak?</a>

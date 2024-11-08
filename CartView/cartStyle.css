@@ -31,6 +31,7 @@ body{
     background-color: #fafbff;
     border-radius: 15px;
     padding: 2em;
+    box-shadow: 0 0 10px rgba(45, 45, 50, 0.47);
 }
 #listBox{
     width: 100%;
@@ -91,7 +92,7 @@ body{
     height: fit-content;
     background-color: #f8f9fd;
     border-radius: 10px;
-
+    box-shadow: 0 0 10px rgba(45, 45, 50, 0.47);
 }
 #totalPrice h1{
     margin: 1em;

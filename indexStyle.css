@@ -178,6 +178,7 @@ body{
     font-size: 1.2em;
     font-weight: 550;
     margin-top: 1em;
+    cursor: pointer;
     transition: .4s;
 }
 .orderBTN button:hover{

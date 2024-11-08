@@ -30,7 +30,7 @@
         <nav>
             <a href="/UMKM_Promotion_01/index.php"> Beranda </a>
             <a href="/UMKM_Promotion_01/AboutUs/aboutUs.php"> Tentang Kami </a>
-            <a href="#"> Produk </a>
+            <a href="/UMKM_Promotion_01/Product/product.php"> Produk </a>
             <a href="#"> Toko </a>
             <a href="#"> Galeri </a>
             <a href="#"> FAQ </a>

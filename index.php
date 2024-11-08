@@ -36,7 +36,7 @@
                         <h1> Selamat Datang </h1>
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores delectus enim fugit iste itaque nobis non optio placeat, ratione. Dignissimos nulla optio quisquam sequi. </p>
                     </div>
-                    <a href="#" id="menuBTN"> Menu </a>
+                    <a href="Product/product.php" id="menuBTN"> Produk </a>
                 </div>
                 <div id="mainRight">
                     <div id="rightImage">
@@ -55,7 +55,7 @@
 
     <section id="bestProduct">
         <div id="bestProductTitle">
-            <h1> Produk Best Saler Kami </h1>
+            <h1> Produk Baru Kami </h1>
             <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, perspiciatis </p>
         </div>
         <div id="bestProductContent">
