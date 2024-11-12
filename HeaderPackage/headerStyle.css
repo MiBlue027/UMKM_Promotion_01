@@ -71,6 +71,7 @@
     height: 4em;
     border-radius: 100%;
     background-color: #242a46;
+    cursor: pointer;
 }
 #userLoginLogout{
     display: flex;
