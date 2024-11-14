@@ -22,8 +22,8 @@
         include_once '../HeaderPackage/headerPage.php';
         include_once '../HeaderPackage/navigationPage.php';
     ?>
-    <header>
-
+    <header id="productHeader">
+        <div id="productBannerIMG"></div>
     </header>
     <div id="wrapper">
         <div id="container">

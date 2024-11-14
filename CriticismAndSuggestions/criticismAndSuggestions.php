@@ -24,11 +24,6 @@
         include_once '../HeaderPackage/navigationPage.php';
     ?>
 
-    <div id="casHeaderBanner">
-        <div id="csaHeaderTitle">
-            <h1> Header Title </h1>
-        </div>
-    </div>
     <div class="wrapper">
         <div id="formContainer">
             <div id="formTitle">

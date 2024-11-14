@@ -26,7 +26,7 @@
             <a href="#"> <i class='bx bxl-tiktok' ></i> </a>
 
         </div>
-        <p> &#169 All Rights Reserved by MC and Sugab | Made with <span> <ion-icon name="heart"></ion-icon> </span> | 2024 </p>
+        <p id="copyRight"> &#169 All Rights Reserved by MC and Sugab | Made with <span> <ion-icon name="heart"></ion-icon> </span> | 2024 </p>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

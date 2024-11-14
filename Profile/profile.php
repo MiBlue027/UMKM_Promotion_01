@@ -25,7 +25,7 @@
     ?>
 
     <header id="profileHeader">
-
+        <div id="headerImage"></div>
     </header>
     <div id="profilePicture"></div>
     <div id="wrapper">

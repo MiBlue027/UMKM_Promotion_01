@@ -29,6 +29,8 @@
 
 
     <section id="landingPage">
+        <div id="landingPageBG"></div>
+        <div id="landingPageOverlay"></div>
         <main>
             <div id="mainContainer">
                 <div id="mainLeft">
@@ -38,11 +40,11 @@
                     </div>
                     <a href="Product/product.php" id="menuBTN"> Produk </a>
                 </div>
-                <div id="mainRight">
-                    <div id="rightImage">
-                        <img src="" alt="">
-                    </div>
-                </div>
+<!--                <div id="mainRight">-->
+<!--                    <div id="rightImage">-->
+<!--                        <img src="" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
             </div>
         </main>
     </section>

@@ -3,7 +3,7 @@
 #webHeader{
     width: 100%;
     height: fit-content;
-    background-color: #529ce8;
+    background-color: #f8f9fd;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,12 +13,15 @@
 #webHeaderTitle{
     font-size: 1.3em;
     margin: 0;
-    padding: .8em;
+    padding: .5em;
 }
 #webHeaderTitle h1{
-    color: #ffffff;
+    color: #519be6;
     margin: 0;
     padding: 0;
+    position: relative;
+    top: .3em;
+    font-size: 2em;
 }
 #navContainer{
     width: 100%;
@@ -29,7 +32,8 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    background-color: #529ce8;
+    background-color: #f8f9fd;
+    box-shadow: 0 5px 5px rgba(33, 34, 39, 0.31);
 }
 #navContainer nav{
     width: 60%;
@@ -43,14 +47,19 @@
 .navA{
     font-size: 1.15em;
     text-decoration: none;
-    color: #ffffff;
+    color: #0d1f42;
     position: relative;
+    transition: .3s;
+}
+.navA:hover{
+    color: #4766a8;
+    text-shadow: 0 0 1px #8a9cd6;
 }
 .navA::after{
     content: '';
     width: 0;
-    height: 3px;
-    background: #ffffff;
+    height: 2px;
+    background: #325a90;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -67,10 +76,12 @@
     width: 15%;
 }
 #userProfile{
-    width: 4em;
+    min-width: 4em;
     height: 4em;
     border-radius: 100%;
-    background-color: #242a46;
+    background-image: url("../Asset/dummyUser.png");
+    background-size: cover;
+    background-position: center;
     cursor: pointer;
 }
 #userLoginLogout{
@@ -82,11 +93,11 @@
 }
 #userLoginLogout h1{
     font-size: 1.4em;
-    color: #ffffff;
+    color: #040515;
     margin: 0;
 }
 #userLoginLogout a{
-    color: #ffffff;
+    color: #040515;
     font-size: 1.2em;
 }
 #addToCart{
@@ -98,8 +109,21 @@
 }
 #addToCart a{
     font-size: 1.2em;
-    color: #ffffff;
+    color: #040515;
     text-decoration: none;
+}
+#addToCart a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #040515;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width .3s ease;
+}
+#addToCart a:hover::after{
+    width: 7em;
 }
 #addToCart span{
     font-size: 1.4em;

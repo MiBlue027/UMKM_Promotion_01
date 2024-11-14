@@ -49,6 +49,53 @@
         </div>
     </div>
 
+    <div id="otherProductContainer">
+        <div id="otherProductTitle">
+            <div class="line"></div> <h1> Produk Lainnya </h1> <div class="line"></div>
+        </div>
+
+        <div id="allProductContainer">
+
+            <div class="productCard" onclick="window.location.href = 'item.php'">
+                <div class="aProductImage"></div>
+                <div class="aProductTitle">
+                    <h1> Produk </h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
+                    <p class="aPrice"> Rp 50.000 </p>
+                </div>
+            </div>
+
+            <div class="productCard" onclick="window.location.href = 'item.php'">
+                <div class="aProductImage"></div>
+                <div class="aProductTitle">
+                    <h1> Produk </h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
+                    <p class="aPrice"> Rp 50.000 </p>
+                </div>
+            </div>
+
+            <div class="productCard" onclick="window.location.href = 'item.php'">
+                <div class="aProductImage"></div>
+                <div class="aProductTitle">
+                    <h1> Produk </h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
+                    <p class="aPrice"> Rp 50.000 </p>
+                </div>
+            </div>
+
+            <div class="productCard" onclick="window.location.href = 'item.php'">
+                <div class="aProductImage"></div>
+                <div class="aProductTitle">
+                    <h1> Produk </h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
+                    <p class="aPrice"> Rp 50.000 </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
     <?php
         include_once '../../Footer/footerPage.php';
     ?>

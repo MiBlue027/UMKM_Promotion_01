@@ -7,13 +7,24 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #f1f2fa;
+    background-color: #ebeff8;
+
 }
 
-header {
+#productHeader {
     width: 100%;
-    height: 50vh;
-    background-color: #242a46;
+    height: 80vh;
+    /*background-color: #242a46;*/
+    /*background-image: url("../Asset/ProductAsset/bannerImage.jpg");*/
+    /*background-size: cover;*/
+    overflow: hidden;
+}
+#productBannerIMG{
+    width: 100%;
+    height: 100%;
+    background-image: url("../Asset/ProductAsset/bannerImage.jpg");
+    background-size: cover;
+    background-position: center;
 }
 #wrapper{
     width: 100%;

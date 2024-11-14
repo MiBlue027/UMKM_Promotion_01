@@ -7,6 +7,7 @@ body{
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #ebeff8;
 }
 
 h1 {
@@ -32,19 +33,19 @@ p {
 }
 
 .judul {
-  color: #34babf;
+  color: #509ae4;
   margin-bottom: 0.5rem;
 }
 
 .malang,
 .surabaya {
-  border: 1px solid black;
   width: 75vmax;
-  padding: 1rem;
+  padding: 2em;
   box-sizing: border-box;
-  background-color: #f8f8ff;
   box-shadow: 0 0 1rem rgba(50, 50, 57, 0.45);
-  background-color: #7af0f4;
+  background-color: #f2f2f9;
+  border: none;
+  border-radius: 10px;
 }
 
 .surabaya {
@@ -55,7 +56,7 @@ p {
 .surabaya h3 {
   margin-bottom: 0.5rem;
   font-size: 2rem;
-  color: rgb(255, 252, 252);
+  color: rgb(79, 153, 226);
 }
 
 .malang a,
@@ -63,7 +64,7 @@ p {
   display: inline-block;
   text-decoration: none;
   margin-bottom: 0.3rem;
-  color: rgb(255, 255, 255);
+  color: rgb(14, 21, 55);
   transition: 0.5s ease;
 }
 

@@ -8,28 +8,7 @@ body{
     padding: 0;
     overflow-x: hidden;
     box-sizing: border-box;
-
-}
-
-#casHeaderBanner {
-    width: 100%;
-    height: 30vh;
-    background-color: #101220;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    top: -50px;
-}
-
-#csaHeaderTitle{
-
-}
-#csaHeaderTitle h1{
-    font-size: 3em;
-    text-align: center;
-    position: relative;
-    top: 100px;
-    color: #ffffff;
+    background-color: #ebeff8;
 }
 
 /* Form Content ----------------------------------------------------------------*/
