@@ -31,7 +31,7 @@
             <a href="/UMKM_Promotion_01/index.php" class="navA"> Beranda </a>
             <a href="/UMKM_Promotion_01/AboutUs/aboutUs.php" class="navA"> Tentang Kami </a>
             <a href="/UMKM_Promotion_01/Product/product.php" class="navA"> Produk </a>
-            <a href="#" class="navA"> Toko </a>
+            <a href="/UMKM_Promotion_01/Toko/toko.php" class="navA"> Toko </a>
             <a href="/UMKM_Promotion_01/Gallery/gallery.php" class="navA"> Galeri </a>
             <a href="/UMKM_Promotion_01/FAQ/faq.php" class="navA"> FAQ </a>
         </nav>

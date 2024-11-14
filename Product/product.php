@@ -64,7 +64,7 @@
 
                 <div id="allProductContainer">
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                            <h1> Produk </h1>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
@@ -118,7 +118,7 @@
                         </div>
                     </div>
 
-                    <div class="productCard">
+                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
                         <div class="aProductImage"></div>
                         <div class="aProductTitle">
                             <h1> Produk </h1>
