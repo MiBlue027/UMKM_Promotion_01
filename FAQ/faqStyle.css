@@ -10,9 +10,12 @@ body{
   background-color: #ebeff8;
 }
 
-h1 {
+#faqTitle {
   font-size: 2.5em;
   font-weight: bold;
+  text-align: center;
+  color: #1e2950;
+  margin-top: 0;
 }
 h2 {
   font-size: 2em;
@@ -51,8 +54,9 @@ hr {
 }
 
 .accordion-pembelian-pengiriman {
-  padding: 1rem;
-  background-color: rgb(232, 238, 248);
+  background-color: rgb(248, 249, 253);
+  padding: 2em;
+  border-radius: 10px;
 }
 
 .accordion-content {

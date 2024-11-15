@@ -21,7 +21,7 @@
 <body>
     <header id="webHeader">
         <div id="webHeaderTitle">
-            <h1> KRIUK BERBUAH </h1>
+            <h1> KRIUK BERUAH </h1>
         </div>
     </header>
 </body>

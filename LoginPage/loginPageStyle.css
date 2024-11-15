@@ -75,7 +75,7 @@ body{
 .inputBox input:valid~label,
 .inputBox input:focus~label{
     transform: translateY(-25px);
-    color: #242a46;
+    color: #181b25;
 }
 .inputIcon{
     position: absolute;
@@ -83,8 +83,20 @@ body{
     transform: translateY(15px);
     font-size: 1.5em;
 }
+#forgotPassword{
+    width: 100%;
+    text-align: right;
+    position: relative;
+    right: 3em;
+    top: 2em;
+}
+#forgotPassword a{
+    /*text-decoration: none;*/
+    font-size: 1.1em;
+    color: #182356;
+}
 .submitBTN{
-    margin: 70px 70px 30px 70px;
+    margin: 50px 70px 30px 70px;
     width: 85%;
     height: 60px;
     background-color: #529ce8;

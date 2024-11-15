@@ -23,7 +23,7 @@
       ?>
 
     <div class="content">
-      <h1>FAQ - Pertanyaan yang Sering Ditanyakan!</h1>
+      <h1 id="faqTitle">FAQ - Pertanyaan yang Sering Ditanyakan!</h1>
       <div class="accordion-pembelian-pengiriman">
         <h3>Informasi Pembelian & Pengiriman</h3>
         <div class="accordion-item">

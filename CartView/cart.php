@@ -111,14 +111,14 @@
                             <td class="priceCOL"> Rp 170.000 </td>
                         </tr>
                         <tr>
-                            <td class="totalCOL"> Diskon </td>
+                            <td class="totalCOL"> Ongkir </td>
                             <td class="doubleDot"> : </td>
                             <td class="priceCOL"> Rp 50.000 </td>
                         </tr>
                         <tr>
                             <td class="totalCOL"> Total </td>
                             <td class="doubleDot"> : </td>
-                            <td class="priceCOL"> Rp 120.000 </td>
+                            <td class="priceCOL"> Rp 230.000 </td>
                         </tr>
                     </table>
                     <button> Bayar </button>
