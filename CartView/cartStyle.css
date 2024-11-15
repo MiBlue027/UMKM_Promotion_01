@@ -46,9 +46,28 @@ body {
   padding: 1em 1em 0 0;
   border-bottom: solid 1px #242a46;
 }
+.productImageCOL{
+  width: 11em;
+}
+.productTitleCOL{
+  width: 30em;
+}
+.priceProductCOL{
+
+}
+.quantityCOL{
+  width: 10em;
+}
+.totalProductCOL{
+  width: 8em;
+}
+.cancelCOL{
+  width: 3em;
+}
 .productImage {
-  width: 7em;
-  height: 7em;
+  width: 10em;
+  height: 10em;
+  margin-bottom: 1em ;
   /* background-color: #242a46; */
 }
 
@@ -56,7 +75,7 @@ body {
   width: 100%;
 }
 .productInformation {
-  width: 20em;
+  width: 30em;
 }
 .productInformation p {
   font-size: 0.9em;

@@ -35,11 +35,12 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="2"> Produk </th>
-                                <th> Harga </th>
-                                <th> Jumlah </th>
-                                <th> Total </th>
-                                <th> </th>
+                                <th class="productImageCOL"> Produk </th>
+                                <th class="productTitleCOL"></th>
+                                <th class="priceProductCOL"> Harga </th>
+                                <th class="quantityCOL"> Jumlah </th>
+                                <th class="totalProductCOL"> Total </th>
+                                <th class="cancelCOL"> </th>
                             </tr>
                         </thead>
                         <tbody>

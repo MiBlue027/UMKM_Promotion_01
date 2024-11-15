@@ -16,7 +16,7 @@
     <footer>
         <div id="information">
             <a href="/UMKM_Promotion_01/CriticismAndSuggestions/criticismAndSuggestions.php"> Kritik dan saran </a>
-            <p style="position: relative; left: 35px"> Gmail: bagusMC@gmai.com</p>
+            <p style="position: relative; left: 15px"> Gmail: bagusMC@gmai.com</p>
             <p> Kontak: 082123456321 </p>
         </div>
         <h1> KRIUK BERBUAH </h1>
