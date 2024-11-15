@@ -1,7 +1,7 @@
 * {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
-body{
+body {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -27,18 +27,52 @@ p {
   text-align: justify;
   line-height: 1.5em;
 }
+
+.banner {
+  position: relative;
+  top: -25vmax;
+  z-index: -1;
+  width: 100%;
+}
+
+.banner img {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.banner .black-cover {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 2;
+}
+
 .content {
+  position: relative;
+  top: -60vmax;
   padding: 15vmax;
-  padding-top: 5vmax;
+  padding-top: 0;
 }
 
 .judul {
-  color: #509ae4;
+  color: white;
   margin-bottom: 0.5rem;
+  font-size: 3em;
+}
+
+.desc-judul {
+  font-size: 1.3em;
+  color: white;
+  text-align: justify;
 }
 
 .malang,
 .surabaya {
+  position: relative;
+  top: 17vmax;
   width: 75vmax;
   padding: 2em;
   box-sizing: border-box;
@@ -46,6 +80,13 @@ p {
   background-color: #f2f2f9;
   border: none;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.malang img,
+.surabaya img {
+  width: 70%;
 }
 
 .surabaya {
@@ -55,27 +96,31 @@ p {
 .malang h3,
 .surabaya h3 {
   margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: rgb(79, 153, 226);
+  margin-top: 0;
 }
 
 .malang a,
 .surabaya a {
+  font-size: 1.25em;
   display: inline-block;
   text-decoration: none;
-  margin-bottom: 0.3rem;
   color: rgb(14, 21, 55);
   transition: 0.5s ease;
+  margin: 1rem 0;
+  font-weight: bold;
 }
 
 .malang a:hover,
 .surabaya a:hover {
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   text-decoration: underline;
 }
 
 .malang-map,
 .ptc-map {
+  display: flex;
   width: 50vmax;
   height: 35vmax;
 }

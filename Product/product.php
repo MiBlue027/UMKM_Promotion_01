@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--    Google Font ----------------------------------------------------------->
@@ -17,10 +18,11 @@
 
     <title> Produk Kami </title>
 </head>
+
 <body>
     <?php
-        include_once '../HeaderPackage/headerPage.php';
-        include_once '../HeaderPackage/navigationPage.php';
+    include_once '../HeaderPackage/headerPage.php';
+    include_once '../HeaderPackage/navigationPage.php';
     ?>
     <header id="productHeader">
         <div id="productBannerIMG"></div>
@@ -38,10 +40,12 @@
                     <p> Enak tiada duanya </p>
                 </div>
                 <div class="bestSellerProduct">
-                    <div class="productImage"></div>
+                    <div class="productImage">
+                        <img src="../Asset/Products/pisang_durian.jpg" alt="">
+                    </div>
                     <div class="productInformation">
                         <div class="productTitle">
-                            <h1> Produk 1 </h1>
+                            <h1> Keripik Pisang Durian </h1>
                             <p class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolore doloremque ex facilis ipsum odit quis quisquam repellat, suscipit voluptates.</p>
                             <p class="priceInformation"> Rp 30.000 </p>
                         </div>
@@ -65,63 +69,77 @@
                 <div id="allProductContainer">
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/pisang_durian.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                           <h1> Produk </h1>
+                            <h1> Keripik Pisang Durian </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/mangga.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Mangga </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/nangka.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Nangka </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/sayur.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Sayur Mix</h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/melinjo.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Melinjo </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/kentang.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Kentang </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
                     </div>
 
                     <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage"></div>
+                        <div class="aProductImage">
+                            <img src="../Asset/Products/kelapa.jpg" alt="">
+                        </div>
                         <div class="aProductTitle">
-                            <h1> Produk </h1>
+                            <h1> Keripik Kelapa </h1>
                             <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
                             <p class="aPrice"> Rp 50.000 </p>
                         </div>
@@ -131,9 +149,11 @@
         </div>
     </div>
     <?php
-        include_once '../Footer/footerPage.php';
+    include_once '../Footer/footerPage.php';
     ?>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script></body>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>

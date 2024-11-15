@@ -1,91 +1,111 @@
-*{
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+* {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
-body{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: #ebeff8;
-}
-
-#galleryContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-#galleryTitle{
-    font-size: 1.6em;
-    color: #529ce8;
-}
-#trendingTopicContainer{
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    background-color: #f4f4fb;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(79, 79, 82, 0.38);
-    padding: 1em;
-}
-#trendingContainerTitle{
-    position: relative;
-    left: 1em;
-    top: 20px;
-    color: #529ce8;
-}
-#trendingContent{
-    width: fit-content;
-}
-#trendingContent table{
-    border-collapse: collapse;
-}
-#trendingContent table tr td{
-    border: solid transparent 1em;
-}
-.topTrendingImage{
-    width: 49em;
-    height: 49em;
-}
-.trendingImage{
-    width: 24em;
-    height: 24em;
-}
-.topTrendingImage, .trendingImage{
-    background-color: #242a46;
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #ebeff8;
 }
 
-#galleryContentTitle{
-    margin-top: 7em;
-    text-align: center;
+#galleryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#galleryContentTitle h1{
-    font-size: 2.6em;
-    color: #529ce8;
+#galleryTitle {
+  font-size: 1.6em;
+  color: #529ce8;
 }
-#galleryContentTitle p{
-    font-size: 1.4em;
-    position: relative;
-    top: -10px;
+#trendingTopicContainer {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4fb;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(79, 79, 82, 0.38);
+  padding: 1em;
 }
-#galleryContent{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-    margin: 4em;
+#trendingContainerTitle {
+  position: relative;
+  left: 1em;
+  top: 20px;
+  color: #529ce8;
 }
-.contentContainer{
-    background-color: #f3f3fa;
-    height: 35em;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(79, 79, 82, 0.34);
-    overflow: hidden;
+#trendingContent {
+  width: fit-content;
 }
-.contentImage{
-    width: 100%;
-    height: 16em;
-    background-color: #242a46;
+#trendingContent table {
+  border-collapse: collapse;
 }
-.contentTitle, .contentParagraph{
-    padding: 0 2em;
+#trendingContent table tr td {
+  border: solid transparent 1em;
+}
+.topTrendingImage {
+  width: 49em;
+  height: 49em;
+}
+
+.topTrendingImage img {
+  height: 100%;
+  width: 100%;
+}
+
+.trendingImage {
+  width: 24em;
+  height: 24em;
+  overflow: hidden;
+}
+
+.trendingImage img {
+  width: 100%;
+}
+
+.topTrendingImage,
+.trendingImage {
+  background-color: #242a46;
+}
+
+#galleryContentTitle {
+  margin-top: 7em;
+  text-align: center;
+}
+#galleryContentTitle h1 {
+  font-size: 2.6em;
+  color: #529ce8;
+}
+#galleryContentTitle p {
+  font-size: 1.4em;
+  position: relative;
+  top: -10px;
+}
+#galleryContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+  margin: 4em;
+}
+.contentContainer {
+  background-color: #f3f3fa;
+  height: 35em;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(79, 79, 82, 0.34);
+  overflow: hidden;
+}
+.contentImage {
+  width: 100%;
+  height: 16em;
+  background-color: #242a46;
+  overflow: hidden;
+}
+
+.contentImage img {
+  width: 100%;
+}
+
+.contentTitle,
+.contentParagraph {
+  padding: 0 2em;
 }

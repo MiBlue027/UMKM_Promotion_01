@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,16 +18,17 @@
 
     <title> Galeri </title>
 </head>
+
 <body>
     <?php
-        include_once '../HeaderPackage/headerPage.php';
-        include_once '../HeaderPackage/navigationPage.php';
+    include_once '../HeaderPackage/headerPage.php';
+    include_once '../HeaderPackage/navigationPage.php';
     ?>
 
     <div id="wrapper">
         <div id="galleryContainer">
             <div id="galleryTitle">
-                <h1> Title Gallery </h1>
+                <h1> Kegiatan Kami! </h1>
             </div>
             <div id="trendingTopicContainer">
                 <div id="trendingContainerTitle">
@@ -36,21 +38,31 @@
                     <table>
                         <tr>
                             <td rowspan="2">
-                                <div class="topTrendingImage"></div>
+                                <div class="topTrendingImage">
+                                    <img src="../Asset/Gallery/event.jpg" alt="">
+                                </div>
                             </td>
                             <td>
-                                <div class="trendingImage"></div>
+                                <div class="trendingImage">
+                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
+                                </div>
                             </td>
                             <td>
-                                <div class="trendingImage"></div>
+                                <div class="trendingImage">
+                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
+                                </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <div class="trendingImage"></div>
+                                <div class="trendingImage">
+                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
+                                </div>
                             </td>
                             <td>
-                                <div class="trendingImage"></div>
+                                <div class="trendingImage">
+                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -64,9 +76,11 @@
 
             <div id="galleryContent">
                 <div class="contentContainer">
-                    <div class="contentImage"></div>
+                    <div class="contentImage">
+                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
+                    </div>
                     <div class="contentTitle">
-                        <h1> Content Title </h1>
+                        <h1> FoodMania </h1>
                     </div>
                     <div class="contentParagraph">
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
@@ -74,9 +88,11 @@
                 </div>
 
                 <div class="contentContainer">
-                    <div class="contentImage"></div>
+                    <div class="contentImage">
+                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
+                    </div>
                     <div class="contentTitle">
-                        <h1> Content Title </h1>
+                        <h1> FoodGasme </h1>
                     </div>
                     <div class="contentParagraph">
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
@@ -84,9 +100,11 @@
                 </div>
 
                 <div class="contentContainer">
-                    <div class="contentImage"></div>
+                    <div class="contentImage">
+                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
+                    </div>
                     <div class="contentTitle">
-                        <h1> Content Title </h1>
+                        <h1> Foodvoria </h1>
                     </div>
                     <div class="contentParagraph">
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
@@ -94,9 +112,11 @@
                 </div>
 
                 <div class="contentContainer">
-                    <div class="contentImage"></div>
+                    <div class="contentImage">
+                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
+                    </div>
                     <div class="contentTitle">
-                        <h1> Content Title </h1>
+                        <h1> Foodies Heaven </h1>
                     </div>
                     <div class="contentParagraph">
                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
@@ -107,7 +127,8 @@
     </div>
 
     <?php
-        include_once '../Footer/footerPage.php';
+    include_once '../Footer/footerPage.php';
     ?>
 </body>
+
 </html>
