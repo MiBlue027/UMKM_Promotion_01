@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--    Google Font ----------------------------------------------------------->
@@ -17,10 +18,11 @@
 
     <title> Cart </title>
 </head>
+
 <body>
     <?php
-        include_once '../HeaderPackage/headerPage.php';
-        include_once '../HeaderPackage/navigationPage.php';
+    include_once '../HeaderPackage/headerPage.php';
+    include_once '../HeaderPackage/navigationPage.php';
     ?>
     <div id="wrapper">
         <div id="cartContainer">
@@ -43,11 +45,13 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <div class="productImage"></div>
+                                    <div class="productImage">
+                                        <img src="../Asset/Products/pisang_durian.jpg" alt="productImage">
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="productInformation">
-                                        <h1> Produk 1 </h1>
+                                        <h1> Keripik Pisang Durian </h1>
                                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum iusto ullam velit. </p>
                                     </div>
                                 </td>
@@ -70,11 +74,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="productImage"></div>
+                                    <div class="productImage">
+                                        <img src="../Asset/Products/kelapa.jpg" alt="">
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="productInformation">
-                                        <h1> Produk 2 </h1>
+                                        <h1> Keripik Kelapa </h1>
                                         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum iusto ullam velit. </p>
                                     </div>
                                 </td>
@@ -106,7 +112,7 @@
                 <div id="totalPriceContent">
                     <table>
                         <tr>
-                            <td class="totalCOL" > Subtotal </td>
+                            <td class="totalCOL"> Subtotal </td>
                             <td class="doubleDot"> : </td>
                             <td class="priceCOL"> Rp 170.000 </td>
                         </tr>
@@ -128,11 +134,12 @@
         </div>
     </div>
     <?php
-        include_once '../Footer/footerPage.php';
+    include_once '../Footer/footerPage.php';
     ?>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
+
 </html>
