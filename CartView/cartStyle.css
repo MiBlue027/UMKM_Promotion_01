@@ -47,22 +47,22 @@ body {
   border-bottom: solid 1px #242a46;
 }
 .productImageCOL{
-  width: 11em;
+  width: 15%;
 }
 .productTitleCOL{
-  width: 30em;
+  width: 30%;
 }
 .priceProductCOL{
-
+  width: 15%;
 }
 .quantityCOL{
-  width: 10em;
+  width: 15%;
 }
 .totalProductCOL{
-  width: 8em;
+  width: 15%;
 }
 .cancelCOL{
-  width: 3em;
+  width: 5%;
 }
 .productImage {
   width: 10em;
