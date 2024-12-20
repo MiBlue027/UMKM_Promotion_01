@@ -1,3 +1,6 @@
+<?php
+if (!empty($_SESSION['username'])) session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,10 +30,16 @@
                     <?php
                         if (!empty($_SESSION['username'])) {
                             echo $_SESSION['username'];
-                        }
+                        } else echo "Pengunjung";
                     ?>
                 </h1>
+                <?php
+                    if (!empty($_SESSION['username'])) {
+                ?>
+                <a href="/UMKM_Promotion_01/LoginPage/logoutHandler.php"> Logout </a>
+                <?php } else { ?>
                 <a href="/UMKM_Promotion_01/LoginPage/loginPage.php"> Login </a>
+                <?php } ?>
             </div>
         </div>
         <nav>

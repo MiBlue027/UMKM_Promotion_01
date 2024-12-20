@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +27,7 @@
                 <h1> Masuk </h1>
                 <p> Selamat datang kembali! </p>
             </div>
-            <form action="" class="formContainer">
+            <form action="../Profile/profile.php" method="POST" class="formContainer">
                 <div class="inputBox">
                     <input type="text" name="loginUsername" id="loginUsername" required>
                     <label for="loginUsername"> Nama Pengguna </label>
