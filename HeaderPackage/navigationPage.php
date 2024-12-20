@@ -23,7 +23,13 @@
         <div id="userInformation">
             <div id="userProfile" onclick="window.location.href = '/UMKM_Promotion_01/Profile/profile.php'"></div>
             <div id="userLoginLogout">
-                <h1> Pengunjung </h1>
+                <h1>
+                    <?php
+                        if (!empty($_SESSION['username'])) {
+                            echo $_SESSION['username'];
+                        }
+                    ?>
+                </h1>
                 <a href="/UMKM_Promotion_01/LoginPage/loginPage.php"> Login </a>
             </div>
         </div>

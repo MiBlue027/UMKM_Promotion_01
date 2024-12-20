@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -51,7 +52,7 @@
                 <h1> Daftar </h1>
                 <p> Halo! Selamat datang! </p>
             </div>
-            <form action="" class="formContainer">
+            <form action="../Profile/profile.php" method="POST" class="formContainer">
                 <div class="inputBox">
                     <input type="text" name="registerUsername" id="registerUsername" required>
                     <label for="registerUsername"> Nama Pengguna </label>
@@ -63,8 +64,8 @@
                     <span class="inputIcon"> <ion-icon name="lock-closed-outline"></ion-icon> </span>
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="registerGmail" id="registerGmail" required>
-                    <label for="registerGmail"> Gmail </label>
+                    <input type="text" name="registerGmail" id="registerGmail" pattern="[a-zA-Z0-9._%+-]+@gmail\.com" required>
+                    <label for="registerGmail"> Email </label>
                     <span class="inputIcon"> <ion-icon name="mail-outline"></ion-icon> </span>
                 </div>
                 <input type="submit" id="registerSubmit" class="submitBTN" value="Daftar">
