@@ -15,9 +15,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $statement->execute();
 
         if ($statement->rowCount() === 0) {
-            $password = password_hash($_POST['registerPassword'], PASSWORD_DEFAULT);
-            $sql = 'INSERT INTO users (username, password, email) VALUES (:username, :password, :email)';
+//            ID generator -------------------------------
+            $date = date('Y-m-d');
+            $formattedDate = str_replace("-", "", $date);
+
+            $sql = 'SELECT * FROM users';
             $statement = $connection->prepare($sql);
+            $statement->execute();
+            $totalUser = $statement->rowCount();
+
+            $userID = $formattedDate * 1000 + $totalUser + 1;
+
+            $password = password_hash($_POST['registerPassword'], PASSWORD_DEFAULT);
+            $sql = 'INSERT INTO users (id, username, password, email) VALUES (:id, :username, :password, :email)';
+            $statement = $connection->prepare($sql);
+            $statement->bindValue(':id', $userID);
             $statement->bindValue(':username', $_POST['registerUsername']);
             $statement->bindValue(':password', $password);
             $statement->bindValue(':email', $_POST['registerGmail']);
@@ -25,8 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($result){
                 $_SESSION['username'] = $_POST['registerUsername'];
-                //                    header('Location: ../Profile/profile.php');
-                //                    exit();
             }
         }
 
@@ -90,6 +100,22 @@ session_destroy();
         $_SESSION['username'] = $username;
         require_once '../HeaderPackage/navigationPage.php';
 
+        $connection = getConnection();
+
+        $sql = 'SELECT * FROM users WHERE username = :username';
+        $statement = $connection->prepare($sql);
+        $statement->bindValue(':username', $username);
+        $result = $statement->execute();
+
+        $userInfo = $statement->fetch();
+        $userID = $userInfo['id'];
+        $userName = $userInfo['username'];
+        $userEmail = $userInfo['email'];
+        $userAddress = $userInfo['address'];
+        $userNumber = $userInfo['phone_number'];
+
+        $statement = null;
+        $connection = null;
 
     ?>
 
@@ -99,37 +125,63 @@ session_destroy();
     <div id="profilePicture"></div>
     <div id="wrapper">
         <div id="profileInformationContainer">
-            <form action="">
+            <form action="profileInfoHandler.php" method="POST">
                 <table> 
                     <tr>
                         <td> <label for="UID"> User ID </label>  </td>
                         <td> : </td>
-                        <td> <input type="number" id="UID" value="20241108001" required readonly>  </td>
+                        <td> <input type="number" id="UID" value="<?php echo $userID ?>" required readonly>  </td>
                     </tr>
                     <tr>
                         <td> <label for="username"> Nama </label> </td>
                         <td> : </td>
-                        <td> <input type="text" id="username" value="No Name Guest" required readonly> </td>
+                        <td> <input type="text" id="username" value="<?php echo $username ?>" required readonly> </td>
                     </tr>
                     <tr>
                         <td> <label for="gmail"> Gmail </label> </td>
                         <td> : </td>
-                        <td> <input type="text" id="gmail" value="user001@gmail.com" required readonly> </td>
+                        <td> <input type="text" id="gmail" value="<?php echo $userEmail ?>" required readonly> </td>
                     </tr>
                     <tr>
                         <td> <label for="address"> Alamat </label> </td>
                         <td> : </td>
-                        <td> <input type="text" id="address" value="Jl. Bunga Bakung" required> </td>
+                        <td> <input type="text" id="address" name="address" value="<?php echo $userAddress ?>" required> </td>
                     </tr>
                     <tr>
                         <td> <label for="phoneNumber"> No. Telefon </label> </td>
                         <td> : </td>
-                        <td> <input type="number" id="phoneNumber" value="082773212938" required> </td>
+                        <td> <input type="number" id="phoneNumber" name="phoneNumber" value="<?php echo $userNumber ?>" required> </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td id="saveBTN"> <input type="submit" value="Simpan"> </td>
+                        <td id="saveBTN"> <input type="submit" id="saveBTN-IN" value="Simpan"> </td>
+                        <script>
+                            const saveBTN = document.getElementById('saveBTN-IN');
+                            const address = document.getElementById('address');
+                            const number = document.getElementById('phoneNumber');
+                            const originalAddress = address.value;
+                            const originalNumber = number.value;
+
+                            function checkChanges() {
+                                if (address.value !== originalAddress || number.value !== originalNumber) {
+                                    saveBTN.style.pointerEvents = 'all';
+                                    saveBTN.style.cursor = 'pointer';
+                                    saveBTN.style.backgroundColor = '#31e43f';
+                                } else {
+                                    saveBTN.style.pointerEvents = 'none';
+                                    saveBTN.style.cursor = 'not-allowed';
+                                    saveBTN.style.backgroundColor = '#949994';
+                                }
+                            }
+
+                            address.addEventListener('input', checkChanges);
+                            number.addEventListener('input', checkChanges);
+
+                            saveBTN.style.pointerEvents = 'none';
+                            saveBTN.style.cursor = 'not-allowed';
+                        </script>
+
                     </tr>
                 </table>
             </form>

@@ -76,14 +76,20 @@ body{
     text-align: end;
     padding-top: 2em;
 }
-#saveBTN input{
+#saveBTN-IN{
     width: 7em;
     height: 3em;
-    background-color: #31e43f;
+    background-color: #949994;
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
     font-weight: 500;
     color: #ffffff;
-    cursor: pointer;
+    pointer-events: none;
+    cursor: none;
+    transition: .3s;
+}
+#saveBTN-IN:hover{
+    background-color: #64ef6e;
+    box-shadow: 0 0 5px rgba(93, 114, 93, 0.53);
 }

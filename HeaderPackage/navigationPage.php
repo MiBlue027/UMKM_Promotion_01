@@ -36,9 +36,9 @@
                 <?php
                     if (!empty($_SESSION['username'])) {
                 ?>
-                <a href="/UMKM_Promotion_01/LoginPage/logoutHandler.php"> Logout </a>
+                <a href="/UMKM_Promotion_01/LoginPage/logoutHandler.php" style="color: #df3a3a"> Logout </a>
                 <?php } else { ?>
-                <a href="/UMKM_Promotion_01/LoginPage/loginPage.php"> Login </a>
+                <a href="/UMKM_Promotion_01/LoginPage/loginPage.php" style="color: #4184d1"> Login </a>
                 <?php } ?>
             </div>
         </div>
