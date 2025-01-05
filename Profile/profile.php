@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user = $statement->fetch();
             if(password_verify($_POST['loginPassword'], $user['password'])){
                 $_SESSION['username'] = $_POST['loginUsername'];
+                $_SESSION['userAvatar'] = $user['avatar'];
             }
         }
 
@@ -68,6 +69,7 @@ if(empty($_SESSION['username'])){
     exit();
 } else {
     $username = $_SESSION['username'];
+    $userAvatar = $_SESSION['userAvatar'];
 }
 
 session_destroy();
@@ -98,6 +100,7 @@ session_destroy();
     <?php
         include_once '../HeaderPackage/headerPage.php';
         $_SESSION['username'] = $username;
+        $_SESSION['userAvatar'] = $userAvatar;
         require_once '../HeaderPackage/navigationPage.php';
 
         $connection = getConnection();
@@ -109,6 +112,7 @@ session_destroy();
 
         $userInfo = $statement->fetch();
         $userID = $userInfo['id'];
+        $userAvatar = $userInfo['avatar'];
         $userName = $userInfo['username'];
         $userEmail = $userInfo['email'];
         $userAddress = $userInfo['address'];
@@ -122,7 +126,7 @@ session_destroy();
     <header id="profileHeader">
         <div id="headerImage"></div>
     </header>
-    <div id="profilePicture"></div>
+    <div id="profilePicture" style="background-image: url(<?php echo $userAvatar ?>);"></div>
     <div id="wrapper">
         <div id="profileInformationContainer">
             <form action="profileInfoHandler.php" method="POST">

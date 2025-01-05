@@ -24,7 +24,6 @@ body{
 #profilePicture{
     width: 20em;
     height: 20em;
-    background-image: url("../Asset/dummyUser.png");
     background-size: cover;
     background-position: center;
     border-radius: 100%;

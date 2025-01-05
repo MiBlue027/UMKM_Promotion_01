@@ -26,12 +26,25 @@ body {
   background-color: #f4f4fb;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(79, 79, 82, 0.38);
-  padding: 1em;
+  padding: 2em;
+  overflow: hidden;
+  position: relative;
+}
+#trendingContent{
+  width: 100%;
+  max-width: 75em;
+  min-width: 75em;
+  height: 100%;
+  background-color: #242a46;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #trendingContainerTitle {
   position: relative;
-  left: 1em;
-  top: 20px;
   color: #529ce8;
 }
 #trendingContent {
@@ -43,31 +56,110 @@ body {
 #trendingContent table tr td {
   border: solid transparent 1em;
 }
+
+/*Top Trending Image ---------------------------------------------------------*/
+.topTrendingImageWrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* Make it as wide as the container */
+  position: relative;
+}
+.topTrendingImageSlider{
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  position: relative;
+}
 .topTrendingImage {
-  width: 49em;
-  height: 49em;
+  width: 100%; /* Adjust width to match the container */
+  height: 35em;
+  position: relative;
+  flex-shrink: 0; /* Prevent shrinking of slides */
+  transition: ease-in-out .5s;
 }
-
 .topTrendingImage img {
+  width: 100%;
   height: 100%;
-  width: 100%;
+  object-fit: cover; /* Prevent image distortion */
 }
-
-.trendingImage {
-  width: 24em;
-  height: 24em;
-  overflow: hidden;
+.topTrendingImageInformation_Wrapper{
+  opacity: 0;
+  display: flex;
+  align-items: end;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(180deg, rgba(45, 45, 46, 0.13) 0%, rgba(10, 10, 12, 0.93) 100%);
+  transition: ease-in-out .4s;
+  cursor: pointer;
+  z-index: 10;
 }
-
-.trendingImage img {
-  width: 100%;
+.topTrendingImageInformation_Wrapper:hover{
+  opacity: 100%;
 }
-
-.topTrendingImage,
-.trendingImage {
+.topTrendingImage:hover{
+  transform: scale(1.03); /* Gunakan transform scale untuk perubahan ukuran */
+}
+.topTrendingImageInformation{
+  margin: 2em;
+  color: #ffffff;
+}
+.topTrendingImageInformation h1{
+  position: relative;
+  top: 20px;
+}
+.topTrendingImage {
   background-color: #242a46;
 }
+.trendingNavigation {
+  position: absolute;
+  top: 50%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  margin: 0 20px;
+  pointer-events: none;
+}
+.trendingNavigation button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+  font-size: 1.8em;
+  pointer-events: all;
+}
+.dots {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
+.dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dots button.active {
+  background-color: white;
+}
+
+.navigation button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*Gallery Content ---------------------------------------------------------*/
 #galleryContentTitle {
   margin-top: 7em;
   text-align: center;
@@ -99,8 +191,9 @@ body {
   height: 16em;
   background-color: #242a46;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-
 .contentImage img {
   width: 100%;
 }
@@ -108,4 +201,13 @@ body {
 .contentTitle,
 .contentParagraph {
   padding: 0 2em;
+}
+
+.mainContent{
+  position: relative;
+  width: 100%;
+  height: 45%;
+  overflow-y: scroll;
+  padding: 0 0 20px 0;
+  flex: 1;
 }

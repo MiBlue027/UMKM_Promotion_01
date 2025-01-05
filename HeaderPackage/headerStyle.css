@@ -79,10 +79,10 @@
     min-width: 4em;
     height: 4em;
     border-radius: 100%;
-    background-image: url("../Asset/dummyUser.png");
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    background-image: url("../Asset/guestUser.png");
 }
 #userLoginLogout{
     display: flex;

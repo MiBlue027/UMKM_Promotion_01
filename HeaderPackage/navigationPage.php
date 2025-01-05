@@ -1,5 +1,5 @@
 <?php
-//session_start();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +24,7 @@
 <body>
     <div id="navContainer">
         <div id="userInformation">
-            <div id="userProfile" onclick="window.location.href = '/UMKM_Promotion_01/Profile/profile.php'"></div>
+            <div id="userProfile" style="background-image: url(<?php echo !empty($_SESSION['userAvatar']) ? $_SESSION['userAvatar'] : '../Asset/guestUser.png'; ?>)" onclick="window.location.href = '/UMKM_Promotion_01/Profile/profile.php'"></div>
             <div id="userLoginLogout">
                 <h1>
                     <?php

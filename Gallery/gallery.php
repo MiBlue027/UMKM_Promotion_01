@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -28,100 +32,137 @@
     <div id="wrapper">
         <div id="galleryContainer">
             <div id="galleryTitle">
-                <h1> Kegiatan Kami! </h1>
+                <h1> Kegiatan Kami </h1>
             </div>
             <div id="trendingTopicContainer">
                 <div id="trendingContainerTitle">
                     <h1> Trending Now </h1>
                 </div>
                 <div id="trendingContent">
-                    <table>
-                        <tr>
-                            <td rowspan="2">
-                                <div class="topTrendingImage">
-                                    <img src="../Asset/Gallery/event.jpg" alt="">
+                    <div class="topTrendingImageWrapper">
+
+                        <?php
+
+                        $connection = getConnection();
+                        $sql = "SELECT * FROM gallery WHERE trending = 1";
+                        $statement = $connection->prepare($sql);
+                        $statement->execute();
+
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+                            <div class="topTrendingImage">
+                                <div class="topTrendingImageInformation_Wrapper">
+                                    <div class="topTrendingImageInformation">
+                                        <h1> <?php echo $row["title"] ?> </h1>
+                                        <p> <?php echo $row["article"] ?> </p>
+                                    </div>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="trendingImage">
-                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="trendingImage">
-                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="trendingImage">
-                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="trendingImage">
-                                    <img src="../Asset/Gallery/eventsquare.jpg" alt="">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                                <img src="<?php echo $row["image"] ?>" alt="Event">
+                            </div>
+                            <?php
+                        }
+
+                        $statement = null;
+                        $connection = null;
+                        ?>
+
+                    </div>
+
+                    <div class="trendingNavigation">
+                        <button class="prevTrendingImage">❮</button>
+                        <button class="nextTrendingImage">❯</button>
+                    </div>
+                    <div class="dots"></div>
                 </div>
             </div>
+<!--Image Slider Script ----------------------------------------------------------------------------->
+            <script>
+                const slidesWrapper = document.querySelector('.topTrendingImageWrapper');
+                const slides = document.querySelectorAll('.topTrendingImage');
+                const prevButton = document.querySelector('.prevTrendingImage');
+                const nextButton = document.querySelector('.nextTrendingImage');
+                const dotsContainer = document.querySelector('.dots');
 
+                let index = 0;
+
+                // Create navigation dots
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        index = i;
+                        updateSlider();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+
+                const dots = document.querySelectorAll('.dots button');
+
+                // Function to update the slider position
+                const updateSlider = () => {
+                    slidesWrapper.style.transform = `translateX(-${index * 100}%)`; // Move the wrapper
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    dots[index].classList.add('active');
+                };
+
+                // Function to show the next slide
+                const showNextSlide = () => {
+                    index = (index + 1) % slides.length;
+                    updateSlider();
+                };
+
+                // Function to show the previous slide
+                const showPrevSlide = () => {
+                    index = (index - 1 + slides.length) % slides.length;
+                    updateSlider();
+                };
+
+                // Event listeners for buttons
+                nextButton.addEventListener('click', showNextSlide);
+                prevButton.addEventListener('click', showPrevSlide);
+
+                // Auto-slide every 5 seconds
+                setInterval(showNextSlide, 5000);
+
+            </script>
+
+<!--            All Gallery Content -------------------------------------------------------------------->
             <div id="galleryContentTitle">
                 <h1> Gallery Content Title </h1>
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
             </div>
 
             <div id="galleryContent">
-                <div class="contentContainer">
-                    <div class="contentImage">
-                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
-                    </div>
-                    <div class="contentTitle">
-                        <h1> FoodMania </h1>
-                    </div>
-                    <div class="contentParagraph">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
-                    </div>
-                </div>
 
-                <div class="contentContainer">
-                    <div class="contentImage">
-                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
-                    </div>
-                    <div class="contentTitle">
-                        <h1> FoodGasme </h1>
-                    </div>
-                    <div class="contentParagraph">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
-                    </div>
-                </div>
+                <?php
+                $connection = getConnection();
 
-                <div class="contentContainer">
-                    <div class="contentImage">
-                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
+                $sql = "SELECT * FROM gallery";
+                $statement = $connection->prepare($sql);
+                $statement->execute();
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                    <div class="contentContainer">
+                        <div class="contentImage">
+                            <img src="<?php echo $row["image"] ?>" alt="">
+                        </div>
+                        <div class="mainContent">
+                            <div class="contentTitle">
+                                <h1> <?php echo $row["title"] ?> </h1>
+                            </div>
+                            <div class="contentParagraph">
+                                <p> <?php echo $row["article"] ?> </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contentTitle">
-                        <h1> Foodvoria </h1>
-                    </div>
-                    <div class="contentParagraph">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
-                    </div>
-                </div>
+                <?php
+                }
 
-                <div class="contentContainer">
-                    <div class="contentImage">
-                        <img src="../Asset/Gallery/eventregular.jpg" alt="">
-                    </div>
-                    <div class="contentTitle">
-                        <h1> Foodies Heaven </h1>
-                    </div>
-                    <div class="contentParagraph">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus mollitia numquam quos vitae voluptatibus. Vel! </p>
-                    </div>
-                </div>
+                $statement = null;
+                $connection = null;
+                ?>
+
             </div>
         </div>
     </div>
