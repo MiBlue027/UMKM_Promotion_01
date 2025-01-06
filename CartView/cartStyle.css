@@ -46,28 +46,27 @@ body {
   padding: 1em 1em 0 0;
   border-bottom: solid 1px #242a46;
 }
-.productImageCOL{
+<<<<<<< Updated upstream .productImageCOL {
   width: 15%;
 }
-.productTitleCOL{
+.productTitleCOL {
   width: 30%;
 }
-.priceProductCOL{
+.priceProductCOL {
   width: 15%;
 }
-.quantityCOL{
+.quantityCOL {
   width: 15%;
 }
-.totalProductCOL{
+.totalProductCOL {
   width: 15%;
 }
-.cancelCOL{
+.cancelCOL {
   width: 5%;
 }
-.productImage {
-  width: 10em;
-  height: 10em;
-  margin-bottom: 1em ;
+=======>>>>>>>Stashed changes .productImage {
+  width: 7em;
+  height: 7em;
   /* background-color: #242a46; */
 }
 
@@ -75,7 +74,7 @@ body {
   width: 100%;
 }
 .productInformation {
-  width: 30em;
+  width: 20em;
 }
 .productInformation p {
   font-size: 0.9em;
