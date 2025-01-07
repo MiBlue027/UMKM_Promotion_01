@@ -1,3 +1,16 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+session_start();
+if (empty($_SESSION['username'])) {
+    header('location: ../LoginPage/loginPage.php');
+    exit();
+} else{
+    $username = $_SESSION['username'];
+    $userAvatar = $_SESSION['userAvatar'];
+    session_destroy();
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,6 +35,8 @@
 <body>
     <?php
     include_once '../HeaderPackage/headerPage.php';
+    $_SESSION['username'] = $username;
+    $_SESSION['userAvatar'] = $userAvatar;
     include_once '../HeaderPackage/navigationPage.php';
     ?>
     <div id="wrapper">

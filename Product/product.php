@@ -1,3 +1,8 @@
+<?php
+    require_once __DIR__ . '/../Database/getConnection.php';
+
+    if (empty($_GET['variant'])) $_GET['variant'] = 'sayur';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -24,14 +29,11 @@
     include_once '../HeaderPackage/headerPage.php';
     include_once '../HeaderPackage/navigationPage.php';
     ?>
-    <header id="productHeader">
-        <div id="productBannerIMG"></div>
-    </header>
     <div id="wrapper">
         <div id="container">
             <div id="navProduct">
-                <button id="vegetableChips"> Keripik Sayur </button>
-                <button id="fruitChips"> Keripik Buah </button>
+                <button class="navProductBTN" id="vegetableChips" onclick="window.location.href = 'product.php?variant=sayur'" data-index="0"> Keripik Sayur </button>
+                <button class="navProductBTN" id="fruitChips" onclick="window.location.href = 'product.php?variant=buah'" data-index="1"> Keripik Buah </button>
             </div>
 
             <div id="bestSeller">
@@ -40,23 +42,113 @@
                     <p> Enak tiada duanya </p>
                 </div>
                 <div class="bestSellerProduct">
-                    <div class="productImage">
-                        <img src="../Asset/Products/pisang_durian.jpg" alt="">
-                    </div>
-                    <div class="productInformation">
-                        <div class="productTitle">
-                            <h1> Keripik Pisang Durian </h1>
-                            <p class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolore doloremque ex facilis ipsum odit quis quisquam repellat, suscipit voluptates.</p>
-                            <p class="priceInformation"> Rp 30.000 </p>
+
+                    <?php
+                        $connection = getConnection();
+
+                        $sql = 'SELECT * FROM product p
+                                JOIN product_details pd ON p.id = pd.product_id
+                                WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock > 0;';
+                        $statement = $connection->prepare($sql);
+                        $statement->bindValue(':variant', $_GET['variant']);
+                        $statement->execute();
+
+                        $dataIndex = 0;
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
+                                <div class="bestProductContainer" data-index="<?php echo $dataIndex++ ?>">
+                                    <input type="hidden" id="productID" value="<?php echo $row['id'] ?>">
+                                    <div class="productImage">
+                                        <img src="<?php echo $row['product_image'] ?>" alt="">
+                                    </div>
+                                    <div class="productInformation">
+                                        <div class="productTitle">
+                                            <h1> <?php echo $row['product_name'] ?> </h1>
+                                            <p class="productDescription">  <?php echo $row['product_description'] ?> </p>
+                                            <p class="priceInformation"> Rp  <?php echo $row['price'] ?> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                    <?php
+                        }
+
+                    $sql = 'SELECT * FROM product p
+                            JOIN product_details pd ON p.id = pd.product_id
+                            WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock = 0;';
+                    $statement = $connection->prepare($sql);
+                    $statement->bindValue(':variant', $_GET['variant']);
+                    $statement->execute();
+
+                    $dataIndex = 0;
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                        <div class="bestProductContainer" data-index="<?php echo $dataIndex++ ?>">
+                            <input type="hidden" id="productID" value="<?php echo $row['id'] ?>">
+                            <div class="productImage">
+                                <img src="<?php echo $row['product_image'] ?>" alt="">
+                            </div>
+                            <div class="productInformation">
+                                <div class="productTitle">
+                                    <h1> <?php echo $row['product_name'] ?> </h1>
+                                    <p class="productDescription">  <?php echo $row['product_description'] ?> </p>
+                                    <p class="priceInformation"> Rp  <?php echo $row['price'] ?> </p>
+                                    <p class="outOfStock"> Stok Habis </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="productPagination">
-                            <button> <ion-icon name="arrow-back-outline"></ion-icon> </button>
-                            <button> Beli </button>
-                            <button> <ion-icon name="arrow-forward-outline"></ion-icon> </button>
-                        </div>
+                        <?php
+                    }
+
+
+                        $statement = null;
+                        $connection = null;
+                    ?>
+
+                    <div class="productPagination">
+                        <button id="prevButton"> <ion-icon name="arrow-back-outline"></ion-icon> </button>
+                        <button onclick="window.location.href = 'Items/item.php?productID=' + document.getElementById('productID').value"> Beli </button>
+                        <button id="nextButton"> <ion-icon name="arrow-forward-outline"></ion-icon> </button>
                     </div>
                 </div>
             </div>
+
+<!--            Best Product Slider ----------------------------------------------------->
+            <script>
+                const products = document.querySelectorAll(".bestProductContainer");
+                let currentIndex = 0;
+
+                // Tombol navigasi
+                const prevButton = document.getElementById("prevButton");
+                const nextButton = document.getElementById("nextButton");
+
+                // Fungsi untuk memperbarui produk yang terlihat
+                function updateSlider(index) {
+                    products.forEach((product, i) => {
+                        if (i === index) {
+                            product.classList.add("active"); // Menampilkan produk yang sesuai
+                        } else {
+                            product.classList.remove("active"); // Menyembunyikan produk lainnya
+                        }
+                    });
+                }
+
+                // Event listener untuk tombol prev
+                prevButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex - 1 + products.length) % products.length; // Loop ke akhir jika negatif
+                    updateSlider(currentIndex);
+                });
+
+                // Event listener untuk tombol next
+                nextButton.addEventListener("click", () => {
+                    currentIndex = (currentIndex + 1) % products.length; // Loop kembali ke awal jika lebih dari panjang array
+                    updateSlider(currentIndex);
+                });
+
+                // Inisialisasi produk pertama
+                updateSlider(currentIndex);
+            </script>
+
+
 
 
             <div id="allProduct">
@@ -68,82 +160,62 @@
 
                 <div id="allProductContainer">
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/pisang_durian.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Pisang Durian </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                    <?php
+                        $connection = getConnection();
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/mangga.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Mangga </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                        $sql = 'SELECT * FROM product p
+                                JOIN product_details pd ON p.id = pd.product_id
+                                WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock > 0;';
+                        $statement = $connection->prepare($sql);
+                        $statement->bindValue(':variant', $_GET['variant']);
+                        $statement->execute();
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/nangka.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Nangka </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    ?>
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/sayur.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Sayur Mix</h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                            <div class="productCard" onclick="window.location.href = 'Items/item.php?productID=' + <?php echo $row['id'] ?>">
+                                <div class="aProductImage">
+                                    <img src="<?php echo $row['product_image'] ?>" alt="">
+                                </div>
+                                <div class="aProductTitle">
+                                    <h1> <?php echo $row['product_name'] ?> </h1>
+<!--                                    <p> --><?php //echo substr($row['product_description'], 0,80) . '...' ?><!-- </p>-->
+                                    <p class="aPrice"> Rp <?php echo $row['price'] ?> </p>
+                                </div>
+                            </div>
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/melinjo.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Melinjo </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                    <?php
+                        }
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/kentang.jpg" alt="">
-                        </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Kentang </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+                    $sql = 'SELECT * FROM product p
+                            JOIN product_details pd ON p.id = pd.product_id
+                            WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock = 0;';
+                    $statement = $connection->prepare($sql);
+                    $statement->bindValue(':variant', $_GET['variant']);
+                    $statement->execute();
 
-                    <div class="productCard" onclick="window.location.href = 'Items/item.php'">
-                        <div class="aProductImage">
-                            <img src="../Asset/Products/kelapa.jpg" alt="">
+                    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+
+                        <div class="productCard" onclick="window.location.href = 'Items/item.php?productID=' + <?php echo $row['id'] ?>">
+                            <div class="aProductImage">
+                                <img src="<?php echo $row['product_image'] ?>" alt="">
+                            </div>
+                            <div class="aProductTitle">
+                                <h1> <?php echo $row['product_name'] ?> </h1>
+                                <!--                                    <p> --><?php //echo substr($row['product_description'], 0,80) . '...' ?><!-- </p>-->
+                                <p class="aPrice"> Rp <?php echo $row['price'] ?> </p>
+                                <p class="outOfStock"> Stok Habis </p>
+                            </div>
                         </div>
-                        <div class="aProductTitle">
-                            <h1> Keripik Kelapa </h1>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing. </p>
-                            <p class="aPrice"> Rp 50.000 </p>
-                        </div>
-                    </div>
+
+                        <?php
+                    }
+
+                        $statement = null;
+                        $connection = null;
+                    ?>
+
                 </div>
             </div>
         </div>

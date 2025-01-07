@@ -1,3 +1,16 @@
+<?php
+require_once __DIR__ . '/../../Database/getConnection.php';
+session_start();
+if (empty($_SESSION['username'])) {
+    header('location: ../../LoginPage/loginPage.php');
+    exit();
+} else{
+    $username = $_SESSION['username'];
+    $userAvatar = $_SESSION['userAvatar'];
+    session_destroy();
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -23,11 +36,26 @@
 
     <?php
     include_once '../../HeaderPackage/headerPage.php';
+    $_SESSION['username'] = $username;
+    $_SESSION['userAvatar'] = $userAvatar;
     include_once '../../HeaderPackage/navigationPage.php';
     ?>
 
     <div id="container">
         <div id="mainInformation">
+            <?php
+            $connection = getConnection();
+
+            $sql = 'SELECT * FROM product p
+                    JOIN product_details pd ON p.id = pd.product_id
+                    WHERE p.id = :productID';
+            $statement = $connection->prepare($sql);
+            $statement->bindValue(':productID', $_GET['productID']);
+
+
+            $statement = null;
+            $connection = null;
+            ?>
             <div id="itemImage">
                 <img src="../../Asset/Products/pisang_durian.jpg" alt="">
             </div>

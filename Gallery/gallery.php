@@ -138,7 +138,7 @@ require_once __DIR__ . '/../Database/getConnection.php';
                 <?php
                 $connection = getConnection();
 
-                $sql = "SELECT * FROM gallery";
+                $sql = "SELECT * FROM gallery;";
                 $statement = $connection->prepare($sql);
                 $statement->execute();
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {

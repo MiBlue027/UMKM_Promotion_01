@@ -10,21 +10,6 @@ body {
   background-color: #ebeff8;
 }
 
-#productHeader {
-  width: 100%;
-  height: 80vh;
-  /*background-color: #242a46;*/
-  /*background-image: url("../Asset/ProductAsset/bannerImage.jpg");*/
-  /*background-size: cover;*/
-  overflow: hidden;
-}
-#productBannerIMG {
-  width: 100%;
-  height: 100%;
-  background-image: url("../Asset/ProductAsset/bannerImage.jpg");
-  background-size: cover;
-  background-position: center;
-}
 #wrapper {
   width: 100%;
   height: 100%;
@@ -42,7 +27,7 @@ body {
   width: 100%;
   border-bottom: solid 0.15em #242a46;
 }
-#navProduct button {
+.navProductBTN {
   border: none;
   padding: 0.8em;
   background-color: #2f2f35;
@@ -53,11 +38,15 @@ body {
   border-radius: 5px 5px 0 0;
   transition: 0.3s;
 }
+.navProductBTN.active{
+  background-color: #52525f;
+}
 #navProduct button:hover {
   background-color: #52525f;
 }
 
 /*Best Seller product ---------------------------------------------------------------*/
+
 
 #bestSellerTitle {
   text-align: center;
@@ -73,33 +62,66 @@ body {
   margin: 0;
 }
 .bestSellerProduct {
+  position: relative;
   display: flex;
   align-items: center;
+  background: linear-gradient(
+          180deg,
+          rgba(241, 247, 255, 1) 0%,
+          rgba(222, 219, 234, 1) 100%
+  );
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(26, 27, 34, 0.37);
+  margin: 0 1em;
+}
+.productImage {
+  width: 23em;
+  height: 23em;
+  display: flex;
+  justify-content: start;
+  padding: 2em;
+}
+.bestProductContainer{
+  display: none;
+  width: 100%;
+  height: fit-content;
+}
+.bestProductContainer.active {
+  display: flex;
+}
+.productImage img {
+  min-width: 23em;
+  width: 100%;
+  height: 100%;
 }
 .productInformation {
   display: flex;
   flex-direction: column;
   margin: 0 2em;
   position: relative;
-  top: -20px;
+  max-width: 65em;
 }
 .productTitle h1 {
+  color: #529ce8;
+  font-size: 2.7em;
   margin: 1em 0 0 0;
 }
 .productDescription {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .priceInformation {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #4f4f52;
 }
-.productImage {
-  width: 55em;
-  display: flex;
-  justify-content: end;
+.outOfStock{
+  font-size: 1.2em;
+  color: #cd2e2e;
 }
 .productPagination {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
   width: 14em;
   display: flex;
   justify-content: space-between;
@@ -147,7 +169,7 @@ body {
 #allProductContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3em;
+  gap: 2em;
   margin: 2em 0;
 }
 .productCard {
@@ -167,8 +189,8 @@ body {
   cursor: pointer;
 }
 .aProductImage {
-  width: 20em;
-  height: 20em;
+  width: 17em;
+  height: 17em;
   background-color: #242a46;
 }
 
@@ -184,11 +206,11 @@ body {
 }
 .aProductTitle h1 {
   margin-bottom: 0.1em;
-  font-size: 2em;
+  font-size: 1.8em;
   color: #529ce8;
 }
 .aProductTitle p {
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0.1em;
 }
 .aPrice {

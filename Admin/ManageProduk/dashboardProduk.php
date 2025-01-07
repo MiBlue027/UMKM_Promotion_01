@@ -138,7 +138,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $data['new']; ?></td>
                         <td><?php echo $data['stock']; ?></td>
                         <td><?php echo $data['total_order']; ?></td>
-                        <td><img src="/../Asset/Products/kelapa.jpg" alt="gambar"></td>
+                        <td><img src="../<?php echo $data['product_image'] ?>" alt="gambar"></td>
                         <td>
                             <a href="formCreateUpdate.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
                             <a href="deleteProduk.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
