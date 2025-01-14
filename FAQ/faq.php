@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,103 +24,88 @@
       <?php
           include_once '../HeaderPackage/headerPage.php';
           include_once '../HeaderPackage/navigationPage.php';
+
       ?>
 
     <div class="content">
       <h1 id="faqTitle">FAQ - Pertanyaan yang Sering Ditanyakan!</h1>
       <div class="accordion-pembelian-pengiriman">
         <h3>Informasi Pembelian & Pengiriman</h3>
-        <div class="accordion-item">
-          <button class="accordion-header" data-id="faq1">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Di toko mana saja saya bisa membeli Keripik Beruah?</p>
-          </button>
-          <div class="accordion-content" id="faq1">
-            <p>
-              Anda dapat membeli Keripik Beruah di toko resmi kami di Malang
-              atau melalui mitra resmi kami yang tersebar di berbagai kota besar
-              di Indonesia.
-            </p>
-            <hr />
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header" data-id="faq2">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Apakah Keripik Beruah tersedia di luar Malang?</p>
-          </button>
-          <div class="accordion-content" id="faq2">
-            <p>
-              Ya, kami memiliki beberapa mitra di luar Malang yang menjual
-              produk kami, atau Anda bisa memesannya secara online di situs
-              resmi kami.
-            </p>
-            <hr />
-          </div>
-        </div>
-        <div class="accordion-item" >
-          <button class="accordion-header" data-id="faq3">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Apakah produk di marketplace (Shopee, Tokopedia, dll) asli?</p>
-          </button>
-          <div class="accordion-content" id="faq3">
-            <p>
-              Ya, produk Keripik Beruah yang dijual di marketplace resmi kami
-              dijamin keasliannya. Pastikan Anda membeli dari akun resmi untuk
-              menghindari produk palsu.
-            </p>
-            <hr />
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header" data-id="faq4">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Apakah pemesanan bisa diantarkan ke rumah?</p>
-          </button>
-          <div class="accordion-content" id="faq4">
-            <p>
-              Ya, kami menyediakan layanan pengantaran ke rumah melalui jasa
-              kurir lokal maupun ojek online di area tertentu.
-            </p>
-            <hr />
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header" data-id="faq5">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Apakah Keripik Beruah bisa dikirim ke luar kota?</p>
-          </button>
-          <div class="accordion-content" id="faq5">
-            <p>
-              Kami menyediakan layanan pengiriman ke luar kota dengan packing
-              khusus untuk memastikan produk sampai dalam kondisi baik.
-            </p>
-            <hr />
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header" data-id="faq6">
-            <i class="bx bx-plus-circle bx-sm"></i>
-            <p>Hari apa saja saya bisa membeli Keripik Beruah di toko?</p>
-          </button>
-          <div class="accordion-content" id="faq6">
-            <p>
-              Anda bisa mengunjungi toko kami setiap hari dari pukul 08.00
-              hingga 20.00. Kami buka setiap hari, termasuk hari libur.
-            </p>
-            <hr />
-          </div>
-        </div>
+          <?php
+
+          $connection = getConnection();
+
+          $sql = 'SELECT * FROM faq';
+          $statement = $connection->prepare($sql);
+          $statement->execute();
+
+          $faqID = 1;
+
+          while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+              ?>
+                  <div class="accordion-item">
+                      <button class="accordion-header" data-id="faq<?php echo $faqID ?>">
+                          <i class="bx bx-plus-circle bx-sm"></i>
+                          <p> <?php echo $row['question'] ?> </p>
+                      </button>
+                      <div class="accordion-content" id="faq<?php echo $faqID++ ?>">
+                          <p>
+                              <?php echo $row['answer'] ?>
+                          </p>
+                          <hr />
+                      </div>
+                  </div>
+              <?php
+
+          }
+
+          $connection = null;
+
+          ?>
+
       </div>
     </div>
 
       <script>
-          document.querySelectorAll('.accordion-header').forEach(button => button.addEventListener('click', ()=>{
-              document.querySelectorAll('.accordion-content').forEach(div => div.style.display = 'none');
-              const targetId = button.getAttribute('data-id');
-              document.getElementById(targetId).style.display = 'block';
-          }));
+
+          document.querySelectorAll('.accordion-header').forEach(button => {
+              button.addEventListener('click', () => {
+                  const targetId = button.getAttribute('data-id');
+                  const targetContent = document.getElementById(targetId);
+                  const icon = button.querySelector('.bx');
+
+                  // Check if the clicked content is already open
+                  const isOpen = targetContent.style.display === 'block';
+
+                  // First close all accordions and reset icons
+                  document.querySelectorAll('.accordion-content').forEach(content => {
+                      content.style.display = 'none';
+                      content.style.maxHeight = '0px';
+                      content.style.opacity = '0';
+                  });
+
+                  document.querySelectorAll('.bx').forEach(icon => {
+                      icon.classList.remove('bx-rotate-90');
+                  });
+
+                  // If the clicked content wasn't open, open it with animation
+                  if (!isOpen) {
+                      targetContent.style.display = 'block';
+                      targetContent.style.opacity = '0';
+                      targetContent.style.maxHeight = '0px';
+
+                      // Trigger animation
+                      setTimeout(() => {
+                          targetContent.style.transition = 'all 0.3s ease-in-out';
+                          targetContent.style.maxHeight = targetContent.scrollHeight + 'px';
+                          targetContent.style.opacity = '1';
+                          icon.classList.add('bx-rotate-90');
+                      }, 10);
+                  }
+              });
+          });
       </script>
+
 
       <?php
         include_once '../Footer/footerPage.php';

@@ -62,8 +62,17 @@ hr {
 .accordion-content {
   margin: 1em 0 1em 0;
   padding: 0 1em 0 1em;
-   display: none;
+  display: none;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0; /* Default tertutup */
+  overflow: hidden;
+}
+.bx {
+  transition: transform 0.3s ease-in-out;
+}
 
+.bx-rotate-90 {
+  transform: rotate(90deg);
 }
 
 .accordion-item {

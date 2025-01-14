@@ -39,14 +39,14 @@
             <div id="bestSeller">
                 <div id="bestSellerTitle">
                     <h1> Produk Best Seller </h1>
-                    <p> Enak tiada duanya </p>
+                    <p> <?php echo "Keripik ". $_GET['variant'] ?> </p>
                 </div>
                 <div class="bestSellerProduct">
 
                     <?php
                         $connection = getConnection();
 
-                        $sql = 'SELECT * FROM product p
+                        $sql = 'SELECT p.id, p.product_image, p.product_name, p.product_description, p.price FROM product p
                                 JOIN product_details pd ON p.id = pd.product_id
                                 WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock > 0;';
                         $statement = $connection->prepare($sql);
@@ -57,7 +57,7 @@
                         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                                 <div class="bestProductContainer" data-index="<?php echo $dataIndex++ ?>">
-                                    <input type="hidden" id="productID" value="<?php echo $row['id'] ?>">
+                                    <input type="hidden" id="productID" class="productID" value="<?php echo $row['id'] ?>">
                                     <div class="productImage">
                                         <img src="<?php echo $row['product_image'] ?>" alt="">
                                     </div>
@@ -72,7 +72,7 @@
                     <?php
                         }
 
-                    $sql = 'SELECT * FROM product p
+                    $sql = 'SELECT p.id, p.product_image, p.product_name, p.product_description, p.price FROM product p
                             JOIN product_details pd ON p.id = pd.product_id
                             WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock = 0;';
                     $statement = $connection->prepare($sql);
@@ -83,7 +83,7 @@
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                         ?>
                         <div class="bestProductContainer" data-index="<?php echo $dataIndex++ ?>">
-                            <input type="hidden" id="productID" value="<?php echo $row['id'] ?>">
+                            <input type="hidden" id="productID" class="productID" value="<?php echo $row['id'] ?>">
                             <div class="productImage">
                                 <img src="<?php echo $row['product_image'] ?>" alt="">
                             </div>
@@ -103,11 +103,17 @@
                         $statement = null;
                         $connection = null;
                     ?>
-
+                    <script>
+                        let productID
+                        function setProductID(){
+                            let productID_Container = document.getElementsByClassName('active');
+                            let productID = productID_Container.getElementById('productID');
+                        }
+                    </script>
                     <div class="productPagination">
-                        <button id="prevButton"> <ion-icon name="arrow-back-outline"></ion-icon> </button>
-                        <button onclick="window.location.href = 'Items/item.php?productID=' + document.getElementById('productID').value"> Beli </button>
-                        <button id="nextButton"> <ion-icon name="arrow-forward-outline"></ion-icon> </button>
+                        <button id="prevButton" onclick="setProductID()"> <ion-icon name="arrow-back-outline"></ion-icon> </button>
+                        <button onclick="window.location.href = 'Items/item.php?productID=' + productID.value"> Beli </button>
+                        <button id="nextButton" onclick="setProductID()"> <ion-icon name="arrow-forward-outline"></ion-icon> </button>
                     </div>
                 </div>
             </div>
@@ -132,6 +138,16 @@
                     });
                 }
 
+                // Fungsi untuk mendapatkan product ID dari produk yang aktif
+                function getActiveProductID() {
+                    const activeProduct = document.querySelector(".bestProductContainer.active"); // Ambil produk dengan class 'active'
+                    if (activeProduct) {
+                        const productIDInput = activeProduct.querySelector(".productID"); // Ambil elemen input dengan class 'productID'
+                        return productIDInput ? productIDInput.value : null;
+                    }
+                    return null;
+                }
+
                 // Event listener untuk tombol prev
                 prevButton.addEventListener("click", () => {
                     currentIndex = (currentIndex - 1 + products.length) % products.length; // Loop ke akhir jika negatif
@@ -142,6 +158,16 @@
                 nextButton.addEventListener("click", () => {
                     currentIndex = (currentIndex + 1) % products.length; // Loop kembali ke awal jika lebih dari panjang array
                     updateSlider(currentIndex);
+                });
+
+                // Event listener untuk tombol "Beli"
+                document.querySelector(".productPagination button:nth-child(2)").addEventListener("click", () => {
+                    const productID = getActiveProductID(); // Ambil ID produk yang aktif
+                    if (productID) {
+                        window.location.href = 'item.php?productID=' + productID; // Navigasi ke halaman pembelian
+                    } else {
+                        alert("Produk tidak ditemukan!");
+                    }
                 });
 
                 // Inisialisasi produk pertama
@@ -163,9 +189,9 @@
                     <?php
                         $connection = getConnection();
 
-                        $sql = 'SELECT * FROM product p
+                        $sql = 'SELECT p.id, p.product_image, p.product_name, p.product_description, p.price FROM product p
                                 JOIN product_details pd ON p.id = pd.product_id
-                                WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock > 0;';
+                                WHERE p.variant = :variant AND pd.stock > 0;';
                         $statement = $connection->prepare($sql);
                         $statement->bindValue(':variant', $_GET['variant']);
                         $statement->execute();
@@ -173,7 +199,7 @@
                         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     ?>
 
-                            <div class="productCard" onclick="window.location.href = 'Items/item.php?productID=' + <?php echo $row['id'] ?>">
+                            <div class="productCard" onclick="window.location.href = 'item.php?productID=' + <?php echo $row['id'] ?>">
                                 <div class="aProductImage">
                                     <img src="<?php echo $row['product_image'] ?>" alt="">
                                 </div>
@@ -187,9 +213,9 @@
                     <?php
                         }
 
-                    $sql = 'SELECT * FROM product p
+                    $sql = 'SELECT p.id, p.product_image, p.product_name, p.product_description, p.price FROM product p
                             JOIN product_details pd ON p.id = pd.product_id
-                            WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock = 0;';
+                            WHERE p.variant = :variant AND pd.stock = 0;';
                     $statement = $connection->prepare($sql);
                     $statement->bindValue(':variant', $_GET['variant']);
                     $statement->execute();
@@ -197,7 +223,7 @@
                     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                         ?>
 
-                        <div class="productCard" onclick="window.location.href = 'Items/item.php?productID=' + <?php echo $row['id'] ?>">
+                        <div class="productCard" onclick="window.location.href = 'item.php?productID=' + <?php echo $row['id'] ?>">
                             <div class="aProductImage">
                                 <img src="<?php echo $row['product_image'] ?>" alt="">
                             </div>

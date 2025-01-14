@@ -173,8 +173,6 @@ main {
 .productCard {
     width: 28em;
     height: 28em;
-    /* background-color: #242a46; */
-    /* background-image: url("Asset/Products/pisang_durian.jpg"); */
     margin: 0 5em 0 15em;
     box-shadow: 0 0 10px rgba(36, 37, 46, 0.62);
     border-radius: 5px;
@@ -184,11 +182,11 @@ main {
     text-align: justify;
 }
 
-.productContainer:nth-child(2) {
+.productContainer:nth-child(even) {
     justify-content: end;
     align-items: start;
 }
-.productContainer:nth-child(2) .productCard {
+.productContainer:nth-child(even) .productCard {
     margin: 0 15em 0 5em;
 }
 .productInformation {

@@ -39,24 +39,25 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 1em;
-  text-align: left;
+  /*text-align: left;*/
 }
 #listBox table tr td,
 #listBox table tr th {
-  padding: 1em 1em 0 0;
+  padding: 1em .2em 0 0;
   border-bottom: solid 1px #242a46;
+  text-align: center;
 }
-<<<<<<< Updated upstream .productImageCOL {
+.productImageCOL {
   width: 15%;
 }
 .productTitleCOL {
-  width: 30%;
+  width: 40%;
 }
 .priceProductCOL {
   width: 15%;
 }
 .quantityCOL {
-  width: 15%;
+  width: 8%;
 }
 .totalProductCOL {
   width: 15%;
@@ -64,7 +65,7 @@ body {
 .cancelCOL {
   width: 5%;
 }
-=======>>>>>>>Stashed changes .productImage {
+.productImage {
   width: 7em;
   height: 7em;
   /* background-color: #242a46; */
@@ -74,7 +75,10 @@ body {
   width: 100%;
 }
 .productInformation {
-  width: 20em;
+  width: 100%;
+}
+.productInformation h1{
+  color: #509ae4;
 }
 .productInformation p {
   font-size: 0.9em;
@@ -99,6 +103,7 @@ body {
   box-shadow: 0 0 5px rgba(79, 79, 82, 0.44);
 }
 .cancelIcon {
+  z-index: 20;
   font-size: 1.8em;
   cursor: pointer;
 }
@@ -135,10 +140,9 @@ body {
   text-align: right;
 }
 #totalPriceContent button {
-  margin: 2em 0.4em;
+  margin: 1.2em 0.4em;
   width: 100%;
   height: 2.5em;
-  background-color: #529ce8;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -147,6 +151,25 @@ body {
   font-weight: 550;
   transition: 0.4s;
 }
-#totalPriceContent button:hover {
+.paymentBTNDisabled{
+  background-color: #7f8a96;
+  pointer-events: none;
+}
+.paymentBTNActive{
+  pointer-events: all;
+  background-color: #529ce8;
+}
+.paymentBTNActive:hover {
   background-color: #86baff;
+}
+#transactionHistoryContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#transactionHistoryContainer a{
+  font-size: 1.1em;
+  font-weight: 550;
+  color: #4d7bc1;
 }

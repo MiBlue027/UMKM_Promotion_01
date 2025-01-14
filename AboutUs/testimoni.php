@@ -13,18 +13,18 @@
 
     <!-- style start -->
     <link rel="stylesheet" href="testimoniStyle.css" />
-      <link rel="stylesheet" href="../../HeaderPackage/headerStyle.css">
-      <link rel="stylesheet" href="../../Footer/footerPageStyle.css">
+      <link rel="stylesheet" href="../HeaderPackage/headerStyle.css">
+      <link rel="stylesheet" href="../Footer/footerPageStyle.css">
     <!-- style end -->
   </head>
   <body>
       <?php
-          include_once '../../HeaderPackage/headerPage.php';
-          include_once '../../HeaderPackage/navigationPage.php';
+          include_once '../HeaderPackage/headerPage.php';
+          include_once '../HeaderPackage/navigationPage.php';
       ?>
     <div class="content">
       <div class="testimoni">
-        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
             <div id="stars">
@@ -44,14 +44,14 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
             <div id="stars">
@@ -71,14 +71,14 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
             <div id="stars">
@@ -98,14 +98,14 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr />
       <div class="testimoni">
-        <img src="../../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
+        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
         <div class="content-testi">
           <h3>Nama Pelanggan</h3>
             <div id="stars">
@@ -125,15 +125,15 @@
             debitis quam at. Laboriosam!
           </p>
           <div class="image-testimoni">
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
+            <img src="../Asset/Testi/dummy-image.png" alt="" />
           </div>
         </div>
       </div>
       <hr/>
     </div>
     <?php
-        include_once '../../Footer/footerPage.php';
+        include_once '../Footer/footerPage.php';
     ?>
   </body>
 </html>

@@ -11,7 +11,7 @@ $new = isset($_POST['new']) ? 1 : ($id ? 0 : 1);
 $stock = $_POST['stock'] ?? 0;
 
 // Path untuk upload gambar
-$uploadDir = __DIR__ . '/../../Asset/Products/uploads/';
+$uploadDir = __DIR__ . '/../../Asset/Products/';
 $productImage = '';
 
 if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
@@ -24,7 +24,7 @@ if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPL
 
         $fileName = uniqid() . '-' . basename($_FILES['product_image']['name']);
         $productImage = $uploadDir . $fileName; // Lokasi penyimpanan di server
-        $relativePath = 'Asset/Products/uploads/' . $fileName; // Path relatif untuk disimpan di database
+        $relativePath = 'Asset/Products/' . $fileName; // Path relatif untuk disimpan di database
 
         // Cek apakah file berhasil dipindahkan
         if (!move_uploaded_file($_FILES['product_image']['tmp_name'], $productImage)) {

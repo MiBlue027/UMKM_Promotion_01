@@ -160,7 +160,7 @@
                         onmouseout="this.src='../Asset/Testi/A.png'" />
                 </div>
                 <div class="testimoni-all-button">
-                    <a href="Testimoni/testimoni.php">Mau Dengar Lebih Banyak?</a>
+                    <a href="testimoni.php">Mau Dengar Lebih Banyak?</a>
                 </div>
             </div>
             <!-- Testimoni Pelanggan End -->
