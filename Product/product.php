@@ -1,7 +1,5 @@
 <?php
     require_once __DIR__ . '/../Database/getConnection.php';
-
-    if (empty($_GET['variant'])) $_GET['variant'] = 'sayur';
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,13 +25,16 @@
 <body>
     <?php
     include_once '../HeaderPackage/headerPage.php';
+    if (empty($_SESSION['variant'])) $_SESSION['variant'] = "sayur";
+    else $_SESSION['variant'] = $_GET['variant'];
+    $_GET['variant'] = $_SESSION['variant'];
     include_once '../HeaderPackage/navigationPage.php';
     ?>
     <div id="wrapper">
         <div id="container">
             <div id="navProduct">
-                <button class="navProductBTN" id="vegetableChips" onclick="window.location.href = 'product.php?variant=sayur'" data-index="0"> Keripik Sayur </button>
-                <button class="navProductBTN" id="fruitChips" onclick="window.location.href = 'product.php?variant=buah'" data-index="1"> Keripik Buah </button>
+                <button class="navProductBTN" id="vegetableChips" onclick="window.location.href = 'product.php?variant=sayur'" data-index="0"> Keripik Sayur  </button>
+                <button class="navProductBTN" id="fruitChips" onclick="window.location.href = 'product.php?variant=buah'" data-index="1"> Keripik Buah   </button>
             </div>
 
             <div id="bestSeller">

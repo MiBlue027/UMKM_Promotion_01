@@ -1,0 +1,157 @@
+* {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #ebeff8;
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+/*Product Information ----------------------------------------------------------------------------------*/
+
+.productInformationContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 2em 3em;
+    background-color: #f7f8fb;
+    box-shadow: 0 0 10px rgba(19, 20, 29, 0.35);
+    border-radius: 15px;
+    position: relative;
+}
+.backIcon{
+    font-size: 2.4em;
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    cursor: pointer;
+}
+.productInformationContainer h1{
+    font-size: 2.8em;
+    color: #529ce8;
+}
+.productInformationContainer img{
+    width: 20em;
+}
+.productDescription{
+    font-size: 1.1em;
+    width: 80%;
+    margin-top: 2em;
+    text-align: center;
+}
+.price{
+    font-size: 1.2em;
+    margin: 0;
+}
+.transactionDate{
+    color: #4f4f52;
+}
+.ratingContainer{
+    margin-top: 4em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ratingContainer h1{
+    margin: .2em;
+}
+.ratingBox{
+    font-size: 2.5em;
+    color: #f3c668;
+    margin: 0;
+}
+.ratingBox span{
+    cursor: pointer;
+    padding: 0 .2em;
+}
+#starFill1, #starFill2, #starFill3, #starFill4, #starFill5{
+    display: none;
+}
+.inputBox{
+    width: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.inputBox label{
+    position: relative;
+    font-size: 1.8em;
+    font-weight: 500;
+    margin: 1em 0 .5em 0;
+}
+.inputBox textarea{
+    position: relative;
+    min-width: 70em;
+    max-width: 70em;
+    min-height: 40em;
+    max-height: 505em;
+    border-radius: 15px;
+    padding: .8em;
+    outline: none;
+    border: solid .24em #7b7b8b;
+}
+.imageInputContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+.imageReviewContainer{
+    display: flex;
+    justify-content: space-between;
+}
+#preview1, #preview2{
+    width: 25em;
+}
+.saveBTN{
+    margin: 5em 0 2em 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submitFormBTNDisable{
+    padding: 1em 3em;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    background-color: #7a8592;
+    pointer-events: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+.submitFormBTNDActive{
+    background-color: #529ce8;
+    padding: 1em 3em;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    pointer-events: all;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.2em;
+    transition: .4s;
+}
+.submitFormBTNDActive:hover{
+    background-color: #86baff;
+    box-shadow: 0 0 10px #86baff;
+}

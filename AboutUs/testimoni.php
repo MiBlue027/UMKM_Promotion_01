@@ -22,6 +22,8 @@
           include_once '../HeaderPackage/headerPage.php';
           include_once '../HeaderPackage/navigationPage.php';
       ?>
+
+
     <div class="content">
       <div class="testimoni">
         <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />

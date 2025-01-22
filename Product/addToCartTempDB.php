@@ -35,7 +35,7 @@ if ($statement->execute()) {
     if ($statement->execute()) {
         $statement = null;
         $connection = null;
-        header("Location: product.php");
+        header("Location: product.php?variant=".$_SESSION['variant']);
         exit();
     }
 }

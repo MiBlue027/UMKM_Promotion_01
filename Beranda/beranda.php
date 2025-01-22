@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -65,60 +69,76 @@ include_once '../HeaderPackage/navigationPage.php';
         <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, perspiciatis </p>
     </div>
     <div id="bestProductContent">
-        <div class="productContainer">
-            <div class="productCard">
-                <img src="../Asset/Products/pisang_durian.jpg" alt="">
-            </div>
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Pisang Durian</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet consequuntur dignissimos distinctio harum id nisi quibusdam quisquam sapiente voluptatibus?
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-        </div>
-        <div class="productContainer">
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Mangga</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa explicabo facere nesciunt, non porro?
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-            <div class="productCard">
-                <img src="../Asset/Products/mangga.jpg" alt="">
-            </div>
-        </div>
-        <div class="productContainer">
-            <div class="productCard">
-                <img src="../Asset/Products/nangka.jpg" alt="">
-            </div>
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Nangka</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae explicabo nostrum numquam pariatur qui reprehenderit. Architecto aspernatur consectetur illum impedit ipsa nobis provident quibusdam, rerum.
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-        </div>
+
+        <table class="bestProductTable" >
+
+            <?php
+                $connection = getConnection();
+
+                $sql = 'SELECT * FROM product WHERE new = 1';
+                $statement = $connection->prepare($sql);
+                $statement->execute();
+
+                $counter = 1;
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    if ($counter++ % 2 != 0) {
+                        ?>
+
+                        <tr>
+                            <td>
+                                <div class="productCard">
+                                    <img src="<?php echo $row['product_image'] ?>" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="productInformation">
+                                    <div class="productTitle">
+                                        <h1> <?php echo $row['product_name'] ?> </h1>
+                                    </div>
+                                    <div class="productDescription">
+                                        <p> <?php echo $row['product_description'] ?> </p>
+                                    </div>
+                                    <div class="orderBTN">
+                                        <button> Pesan </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <?php
+                    } else {
+                        ?>
+                            <tr>
+                                <td>
+                                    <div class="productInformationL">
+                                        <div class="productTitle">
+                                            <h1><?php echo $row['product_name'] ?> </h1>
+                                        </div>
+                                        <div class="productDescription">
+                                            <p> <?php echo $row['product_description'] ?> </p>
+                                        </div>
+                                        <div class="orderBTN">
+                                            <button> Pesan </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="productCardL">
+                                        <img src="<?php echo $row['product_image'] ?>" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                }
+
+                $statement = null;
+                $connection = null;
+
+            ?>
+
+        </table>
+
     </div>
 </section>
 
