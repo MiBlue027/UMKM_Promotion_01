@@ -9,6 +9,7 @@ $price = $_POST['price'] ?? 0;
 $product_description = $_POST['product_description'] ?? '';
 $new = isset($_POST['new']) ? 1 : ($id ? 0 : 1);
 $stock = $_POST['stock'] ?? 0;
+$product_image = $_FILES['product_image'] ?? '';
 
 // Path untuk upload gambar
 $uploadDir = __DIR__ . '/../../Asset/Products/';
@@ -16,23 +17,20 @@ $productImage = '';
 
 if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
     // Membuat folder jika belum ada
-    if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-        // Membuat folder jika belum ada
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
-        }
-
-        $fileName = uniqid() . '-' . basename($_FILES['product_image']['name']);
-        $productImage = $uploadDir . $fileName; // Lokasi penyimpanan di server
-        $relativePath = 'Asset/Products/' . $fileName; // Path relatif untuk disimpan di database
-
-        // Cek apakah file berhasil dipindahkan
-        if (!move_uploaded_file($_FILES['product_image']['tmp_name'], $productImage)) {
-            die('Gagal memindahkan file. Pastikan folder memiliki izin tulis.');
-        }
-    } else {
-        $relativePath = null; // Tidak ada gambar yang diunggah
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
     }
+
+    $fileName = uniqid() . '-' . basename($_FILES['product_image']['name']);
+    $productImage = $uploadDir . $fileName; // Lokasi penyimpanan di server
+    $relativePath = 'Asset/Products/uploads/' . $fileName; // Path relatif untuk disimpan di database
+
+    // Cek apakah file berhasil dipindahkan
+    if (!move_uploaded_file($_FILES['product_image']['tmp_name'], $productImage)) {
+        die('Gagal memindahkan file. Pastikan folder memiliki izin tulis.');
+    }
+} else {
+    $relativePath = null; // Tidak ada gambar yang diunggah
 }
 
 if ($id) {
@@ -48,7 +46,7 @@ if ($id) {
     $statement->bindValue(':price', $price);
     $statement->bindValue(':product_description', $product_description);
     $statement->bindValue(':new', $new, PDO::PARAM_INT);
-    $statement->bindValue(':product_image', $relativePath ?: null);
+    $statement->bindValue(':product_image', $relativePath); // Menggunakan path relatif
     $statement->execute();
 
     $statement = $connection->prepare("
@@ -70,7 +68,7 @@ if ($id) {
     $statement->bindValue(':price', $price);
     $statement->bindValue(':product_description', $product_description);
     $statement->bindValue(':new', $new, PDO::PARAM_INT);
-    $statement->bindValue(':product_image', $relativePath ?: null);
+    $statement->bindValue(':product_image', $relativePath); // Menggunakan path relatif
     $statement->execute();
 
     $newProductId = $connection->lastInsertId();
