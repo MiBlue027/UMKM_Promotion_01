@@ -16,44 +16,53 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
     <link rel="stylesheet" href="Footer/footerPageStyle.css">
     <title>Admin Gallery</title>
-    <!--    Google Font ----------------------------------------------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <!--    Icon Link ---------------------------------------------------->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
     <style>
         * {
             font-family: "Poppins", Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
         }
 
         .main_title {
             color: #529ce8;
             font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 0;
+            margin-bottom: 1rem;
         }
 
         .container {
             width: 90vmax;
-            position: relative;
             margin: 0 auto;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         table {
             width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
         }
 
         th,
-        tr,
         td {
-            padding: 0.5rem;
+            padding: 0.75rem;
             text-align: center;
+            border: 1px solid #ddd;
         }
 
         th {
+            background-color: #f2f2f2;
             font-size: 1.2rem;
         }
 
@@ -61,31 +70,49 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             font-size: 1rem;
         }
 
+        img {
+            max-width: 100px;
+            /* Limit image width */
+            height: auto;
+            border-radius: 4px;
+        }
+
         .tambah {
             display: flex;
-            justify-content: end;
-            align-items: center;
-            margin-bottom: 0.5rem;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
         }
 
         .tambah a {
-            width: 10em;
-            height: 3em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            padding: 0.5em 1em;
             background-color: #529ce8;
-            border-radius: 10px;
-            font-size: 1.2em;
-            font-weight: 550;
-            text-decoration: none;
+            border-radius: 5px;
             color: #ffffff;
-            transition: 0.4s;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
         }
 
         .tambah a:hover {
             background-color: #86baff;
+        }
+
+        header {
+            background-color: #529ce8;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        header a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -98,32 +125,39 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             <a href="formCreateUpdateGallery.php">Tambah Gambar</a>
         </div>
         <div class="gallery">
-            <table border="1">
-                <th>Id</th>
-                <th>Judul</th>
-                <th>Artikel</th>
-                <th>Gambar</th>
-                <th>Trending</th>
-                <th>Action</th>
-                <?php
-                foreach ($result as $data) {
-                ?>
+            <table>
+                <thead>
                     <tr>
-                        <td><?php echo $data['id']; ?></td>
-                        <td><?php echo htmlspecialchars($data['title']); ?></td>
-                        <td><?php echo htmlspecialchars($data['article']); ?></td>
-                        <td><img src="../<?php echo $data['image']; ?>" alt="gambar" style="width: 100px; height: auto;"></td>
-                        <td><?php echo $data['trending'] ? 'Ya' : 'Tidak'; ?></td>
-                        <td>
-                            <a href="formCreateUpdateGallery.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
-                            <a href="deleteGallery.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
-                        </td>
+                        <th>Id</th>
+                        <th>Judul</th>
+                        <th>Artikel</th>
+                        <th>Gambar</th>
+                        <th>Trending</th>
+                        <th>Action</th>
                     </tr>
-                <?php
-                }
-                ?>
-            </table </div>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($result as $data) {
+                    ?>
+                        <tr>
+                            <td><?php echo $data['id']; ?></td>
+                            <td><?php echo htmlspecialchars($data['title']); ?></td>
+                            <td><?php echo htmlspecialchars($data['article']); ?></td>
+                            <td><img src="../<?php echo $data['image']; ?>" alt="gambar"></td>
+                            <td><?php echo $data['trending'] ? 'Ya' : 'Tidak'; ?></td>
+                            <td>
+                                <a href="formCreateUpdateGallery.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
+                                <a href="deleteGallery.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
+    </div>
 </body>
 
 </html>
