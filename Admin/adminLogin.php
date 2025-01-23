@@ -24,17 +24,9 @@
 <?php
 require_once '../informationAction.php';
 if (!empty($_GET['success'])) {
-    if ($_GET['success'] === '01') {
+    if ($_GET['success'] === '02') {
         ?>
-        <script> showIA("Gagal", "Username atau email telah terdaftar") </script>
-    <?php
-    } else if ($_GET['success'] === '02') {
-    ?>
-        <script> showIA("Gagal", "Username atau password salah") </script>
-    <?php
-    }  else if ($_GET['success'] === '2') {
-    ?>
-        <script> showIA("Berhasil", "Password anda berhasil diperbarui!") </script>
+        <script> showIA("Gagal", "admin atau password salah!") </script>
         <?php
     }
 }
@@ -45,15 +37,14 @@ if (!empty($_GET['success'])) {
 <div id="wrapper">
     <!--        Login -------------------------------------------------------------------------->
     <div id="loginContainer">
-        <span class="backIcon" onclick="goToLandingPage()"> <ion-icon name="chevron-back-circle-outline"></ion-icon> </span>
         <div class="formTitle">
             <h1> Admin </h1>
             <p> Login akses terbatas! </p>
         </div>
-        <form action="../Profile/profile.php" method="POST" class="formContainer">
+        <form action="adminLoginHandler.php" method="POST" class="formContainer">
             <div class="inputBox">
                 <input type="text" name="loginUsername" id="loginUsername" required>
-                <label for="loginUsername"> Nama Pengguna </label>
+                <label for="loginUsername"> admin </label>
                 <span class="inputIcon"> <ion-icon name="person-circle-outline"></ion-icon> </span>
             </div>
             <div class="inputBox">
@@ -63,45 +54,10 @@ if (!empty($_GET['success'])) {
             </div>
             <input type="submit" id="loginSubmit" class="submitBTN" value="Masuk">
         </form>
-        <p class="loginOrRegister"> Belum memiliki akun? <span> <a href="#" onclick="openRegisterForm()"> Daftar </a> </span> </p>
     </div>
 
 </div>
 
-<!--    Register Or Login Link -------------------------------------------------------->
-<script>
-    const registerForm = document.getElementById('registerContainer');
-    const  loginForm = document.getElementById('loginContainer');
-    function openRegisterForm() {
-        loginForm.style.opacity = '0';
-        setTimeout(function (){
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'flex';
-            setTimeout(function (){
-                registerForm.style.opacity = '80%';
-            }, 200);
-        },300);
-
-    }
-
-    function openLoginForm(){
-        registerForm.style.opacity = '0';
-        setTimeout(function (){
-            registerForm.style.display = 'none';
-            loginForm.style.display = 'flex';
-            setTimeout(function (){
-                loginForm.style.opacity = '80%';
-            }, 200);
-        },300);
-    }
-</script>
-
-<!--    Back to LandingPage Script ---------------------------------------------------->
-<script>
-    function goToLandingPage(){
-        window.location.href = "../index.php";
-    }
-</script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

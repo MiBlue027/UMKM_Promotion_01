@@ -98,15 +98,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <header>
-        <h1>Dashboard Admin</h1>
-        <br>
-        <a href="">Produk</a>
-        <a href="">Galery</a>
-        <a href="">Testimoni</a>
-        <a href="">User</a>
-
-    </header>
+    <?php require_once '../adminNavigation.php' ?>
     <div class="container">
         <h1 class="main_title">List Produk</h1>
         <div class="tambah">

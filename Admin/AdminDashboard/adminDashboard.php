@@ -20,6 +20,7 @@ require_once __DIR__ . '/../../Database/getConnection.php';
 
 </head>
 <body>
+    <?php require_once '../adminNavigation.php' ?>
     <div class="wrapper">
 
     </div>
