@@ -82,6 +82,12 @@ $data = $data ?? [
         <br>
 
         <label>Gambar Produk:</label>
+        <?php if ($data['product_image']): ?>
+            <div>
+                <img src="../<?= htmlspecialchars($data['product_image']) ?>" alt="Current Image" style="width: 100px; height: auto;">
+                <p>Gambar saat ini. Jika tidak ingin mengubah, biarkan kosong.</p>
+            </div>
+        <?php endif; ?>
         <input type="file" name="product_image" accept="image/*">
         <br>
 

@@ -110,7 +110,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
         <h1 class="main_title">List Produk</h1>
         <div class="tambah">
-            <a href="formCreateUpdate.php" class="tambah">Tambah Produk</a>
+            <a href="formCreateUpdateProduk.php" class="tambah">Tambah Produk</a>
         </div>
         <div class="produk">
             <table border="1">
@@ -140,7 +140,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $data['total_order']; ?></td>
                         <td><img src="../<?php echo $data['product_image'] ?>" alt="gambar"></td>
                         <td>
-                            <a href="formCreateUpdate.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
+                            <a href="formCreateUpdateProduk.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
                             <a href="deleteProduk.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
                         </td>
                     </tr>

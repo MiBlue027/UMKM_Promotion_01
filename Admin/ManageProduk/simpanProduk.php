@@ -21,6 +21,14 @@ if (!is_dir($targetDirectory)) {
 // Inisialisasi variabel untuk menyimpan path gambar
 $relativePath = null;
 
+// Ambil gambar produk yang ada dari database jika ada
+if ($id) {
+    $statement = $connection->prepare("SELECT product_image FROM product WHERE id = :id");
+    $statement->bindValue(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $existingImage = $statement->fetchColumn();
+}
+
 // Periksa apakah ada file yang diunggah
 if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
     $file = $_FILES['product_image'];
@@ -43,7 +51,8 @@ if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPL
         die("File yang diunggah bukan gambar. Harap unggah file gambar.");
     }
 } else {
-    die("Tidak ada file yang diunggah.");
+    // Jika tidak ada gambar baru, gunakan gambar yang sudah ada
+    $relativePath = $existingImage;
 }
 
 // Store the relative path in the database
@@ -51,7 +60,7 @@ if ($id) {
     // Update existing record
     $statement = $connection->prepare("
         UPDATE product 
-        SET product_name = :product_name, variant = :variant, price = :price, product_description = :product_description, new = :new, product_image = COALESCE(:product_image, product_image)
+        SET product_name = :product_name, variant = :variant, price = :price, product_description = :product_description, new = :new, product_image = :product_image
         WHERE id = :id
     ");
     $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -71,7 +80,7 @@ if ($id) {
     $statement->bindValue(':id', $id, PDO::PARAM_INT);
     $statement->bindValue(':stock', $stock);
     $statement->execute();
-    echo "Data berhasil diperbarui .";
+    echo "Data berhasil diperbarui.";
 } else {
     // Insert new record
     $statement = $connection->prepare("
@@ -83,7 +92,7 @@ if ($id) {
     $statement->bindValue(':price', $price);
     $statement->bindValue(':product_description', $product_description);
     $statement->bindValue(':new', $new, PDO::PARAM_INT);
-    $statement->bindValue(':product_image', $relativePath); // Menggunakan path relatif
+    $statement->bindValue(': product_image', $relativePath); // Menggunakan path relatif
     $statement->execute();
     echo "Data berhasil disimpan.";
 
