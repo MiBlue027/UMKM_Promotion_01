@@ -30,6 +30,22 @@
     $_GET['variant'] = $_SESSION['variant'];
     include_once '../HeaderPackage/navigationPage.php';
     ?>
+
+
+    <!--    INFORMATION ACTION ---------------------------------------------------------------------------->
+    <?php
+    require_once '../informationAction.php';
+    if (!empty($_GET['success'])) {
+        if ($_GET['success'] === '1') {
+            ?>
+            <script> showIA("Berhasil", "Pesanan anda sudah dimasukan kedalam keranjang") </script>
+            <?php
+        }
+    }
+    ?>
+
+    <!--    Main Content --------------------------------------------------------------------------------------->
+
     <div id="wrapper">
         <div id="container">
             <div id="navProduct">

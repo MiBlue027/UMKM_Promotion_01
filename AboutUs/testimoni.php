@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,116 +27,72 @@
           include_once '../HeaderPackage/navigationPage.php';
       ?>
 
+    <div class="wrapper">
+        <div class="testimonyContainer">
+            <?php
 
-    <div class="content">
-      <div class="testimoni">
-        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
-        <div class="content-testi">
-          <h3>Nama Pelanggan</h3>
-            <div id="stars">
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-            </div>
-          <p class="date">12-04-2023</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            iste ad sed, quo facilis natus harum ipsum perferendis doloremque
-            cum rem, quas non ut est numquam culpa! Quaerat impedit quasi
-            incidunt nihil inventore? Vero eaque velit natus qui distinctio,
-            quibusdam tempore! Pariatur ullam consequuntur, quo necessitatibus
-            debitis quam at. Laboriosam!
-          </p>
-          <div class="image-testimoni">
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-          </div>
+            $connection = getConnection();
+
+            $sql = "SELECT u.username, u.avatar, ty.rating, t.transaction_date, ty.review, ty.image1, ty.image2 FROM testimony ty
+                        JOIN users u ON u.id = ty.user_id
+                        JOIN transaction_details td ON td.id = ty.transaction_details_id
+                        JOIN transaction t ON t.id = td.transaction_id
+                        WHERE ty.visibility = 1";
+            $statement = $connection->prepare($sql);
+            $statement->execute();
+
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+
+                <div class="testimoni">
+                    <div class="profileContainer">
+                        <img src="<?php echo $row['avatar'] ?>" alt="" class="profile-picture" />
+                        <div class="usernameRating">
+                            <h3> <?php echo $row['username'] ?> </h3>
+                            <div id="stars">
+                                <?php for ($i = 0; $i < $row['rating']; $i++) {
+                                    ?>
+                                    <ion-icon name="star"></ion-icon>
+                                    <?php
+                                }
+                                for ($j = 0; $j < 5 - $row['rating']; $j++) {
+                                        ?>
+                                        <ion-icon name="star-outline"></ion-icon>
+                                        <?php
+                                    }
+                                ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-testi">
+
+                        <p class="date"> <?php echo substr($row['transaction_date'],0, 10) ?> </p>
+                        <p class="review"> <?php echo $row['review'] ?> </p>
+                        <div class="image-testimoni">
+                            <?php
+                                if ($row['image1'] !== null) {
+                                    ?>
+                                    <img src="<?php echo $row['image1'] ?>" alt="" />
+                                    <?php
+                                }
+                                if ($row['image2'] !== null) {
+                                    ?>
+                                    <img src="<?php echo $row['image2'] ?>" alt="" />
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+            }
+
+            $connection = null;
+
+            ?>
         </div>
-      </div>
-      <hr />
-      <div class="testimoni">
-        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
-        <div class="content-testi">
-          <h3>Nama Pelanggan</h3>
-            <div id="stars">
-              <i class="bx bxs-star bx-md"></i>
-              <i class="bx bxs-star bx-md"></i>
-              <i class="bx bxs-star bx-md"></i>
-              <i class="bx bxs-star bx-md"></i>
-              <i class="bx bxs-star bx-md"></i>
-            </div>
-          <p class="date">12-04-2023</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            iste ad sed, quo facilis natus harum ipsum perferendis doloremque
-            cum rem, quas non ut est numquam culpa! Quaerat impedit quasi
-            incidunt nihil inventore? Vero eaque velit natus qui distinctio,
-            quibusdam tempore! Pariatur ullam consequuntur, quo necessitatibus
-            debitis quam at. Laboriosam!
-          </p>
-          <div class="image-testimoni">
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div class="testimoni">
-        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
-        <div class="content-testi">
-          <h3>Nama Pelanggan</h3>
-            <div id="stars">
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-            </div>
-          <p class="date">12-04-2023</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            iste ad sed, quo facilis natus harum ipsum perferendis doloremque
-            cum rem, quas non ut est numquam culpa! Quaerat impedit quasi
-            incidunt nihil inventore? Vero eaque velit natus qui distinctio,
-            quibusdam tempore! Pariatur ullam consequuntur, quo necessitatibus
-            debitis quam at. Laboriosam!
-          </p>
-          <div class="image-testimoni">
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div class="testimoni">
-        <img src="../Asset/Testi/dummy-image.png" alt="" class="profile-picture" />
-        <div class="content-testi">
-          <h3>Nama Pelanggan</h3>
-            <div id="stars">
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-                <i class="bx bxs-star bx-md"></i>
-            </div>
-          <p class="date">12-04-2023</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum
-            iste ad sed, quo facilis natus harum ipsum perferendis doloremque
-            cum rem, quas non ut est numquam culpa! Quaerat impedit quasi
-            incidunt nihil inventore? Vero eaque velit natus qui distinctio,
-            quibusdam tempore! Pariatur ullam consequuntur, quo necessitatibus
-            debitis quam at. Laboriosam!
-          </p>
-          <div class="image-testimoni">
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-            <img src="../Asset/Testi/dummy-image.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <hr/>
     </div>
     <?php
         include_once '../Footer/footerPage.php';

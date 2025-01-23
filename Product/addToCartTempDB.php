@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__.'/../Database/getConnection.php';
+session_start();
 
 $connection = getConnection();
 $sql = 'SELECT id FROM users WHERE username = :username';
@@ -35,7 +36,7 @@ if ($statement->execute()) {
     if ($statement->execute()) {
         $statement = null;
         $connection = null;
-        header("Location: product.php?variant=".$_SESSION['variant']);
+        header("Location: product.php?variant=".$_SESSION['variant']."&success=1");
         exit();
     }
 }

@@ -1,79 +1,5 @@
 <?php
 require_once __DIR__ . '/../Database/getConnection.php';
-
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//    Register Handler ---------------------------------------------------------------------------
-    if (!empty($_POST['registerUsername']) || !empty($_POST['registerEmail']) || !empty($_POST['registerPassword'])) {
-        $connection = getConnection();
-
-        $sql = 'SELECT * FROM users WHERE username = :username OR email = :email';
-        $statement = $connection->prepare($sql);
-        $statement->bindValue(':username', $_POST['registerUsername']);
-        $statement->bindValue(':email', $_POST['registerGmail']);
-        $result = $statement->execute();
-
-        if ($statement->rowCount() === 0) {
-//            ID generator -------------------------------
-            $date = date('Y-m-d');
-            $formattedDate = str_replace("-", "", $date);
-
-            $sql = 'SELECT * FROM users';
-            $statement = $connection->prepare($sql);
-            $statement->execute();
-            $totalUser = $statement->rowCount();
-
-            $userID = $formattedDate * 1000 + $totalUser + 1;
-
-            $password = password_hash($_POST['registerPassword'], PASSWORD_DEFAULT);
-            $sql = 'INSERT INTO users (id, username, password, email) VALUES (:id, :username, :password, :email)';
-            $statement = $connection->prepare($sql);
-            $statement->bindValue(':id', $userID);
-            $statement->bindValue(':username', $_POST['registerUsername']);
-            $statement->bindValue(':password', $password);
-            $statement->bindValue(':email', $_POST['registerGmail']);
-            $result = $statement->execute();
-
-            if ($result){
-                $_SESSION['username'] = $_POST['registerUsername'];
-            }
-        }
-
-        $statement = null;
-        $connection = null;
-    }
-//    Login Handler ------------------------------------------------------------------------
-    else if(!empty($_POST['loginUsername']) || !empty($_POST['loginPassword'])) {
-        $connection = getConnection();
-        $sql = 'SELECT * FROM users WHERE username = :username';
-        $statement = $connection->prepare($sql);
-        $statement->bindValue(':username', $_POST['loginUsername']);
-        $statement->execute();
-        if ($statement->rowCount() === 1) {
-            $user = $statement->fetch();
-            if(password_verify($_POST['loginPassword'], $user['password'])){
-                $_SESSION['username'] = $_POST['loginUsername'];
-                $_SESSION['userAvatar'] = $user['avatar'];
-            }
-        }
-
-        $statement = null;
-        $connection = null;
-
-    }
-}
-
-if(empty($_SESSION['username'])){
-    header('Location: ../LoginPage/loginPage.php');
-    exit();
-} else {
-    $username = $_SESSION['username'];
-    $userAvatar = $_SESSION['userAvatar'];
-}
-
-session_destroy();
-
 ?>
 
 <!doctype html>
@@ -99,15 +25,85 @@ session_destroy();
 
     <?php
         include_once '../HeaderPackage/headerPage.php';
-        $_SESSION['username'] = $username;
-        $_SESSION['userAvatar'] = $userAvatar;
-        require_once '../HeaderPackage/navigationPage.php';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        //    Register Handler ---------------------------------------------------------------------------
+            if (!empty($_POST['registerUsername']) || !empty($_POST['registerEmail']) || !empty($_POST['registerPassword'])) {
+                $connection = getConnection();
+
+                $sql = 'SELECT * FROM users WHERE username = :username OR email = :email';
+                $statement = $connection->prepare($sql);
+                $statement->bindValue(':username', $_POST['registerUsername']);
+                $statement->bindValue(':email', $_POST['registerGmail']);
+                $result = $statement->execute();
+
+                if ($statement->rowCount() === 0) {
+        //            ID generator -------------------------------
+                    $date = date('Y-m-d');
+                    $formattedDate = str_replace("-", "", $date);
+
+                    $sql = 'SELECT * FROM users';
+                    $statement = $connection->prepare($sql);
+                    $statement->execute();
+                    $totalUser = $statement->rowCount();
+
+                    $userID = $formattedDate * 1000 + $totalUser + 1;
+
+                    $password = password_hash($_POST['registerPassword'], PASSWORD_DEFAULT);
+                    $sql = 'INSERT INTO users (id, username, password, email) VALUES (:id, :username, :password, :email)';
+                    $statement = $connection->prepare($sql);
+                    $statement->bindValue(':id', $userID);
+                    $statement->bindValue(':username', $_POST['registerUsername']);
+                    $statement->bindValue(':password', $password);
+                    $statement->bindValue(':email', $_POST['registerGmail']);
+                    $result = $statement->execute();
+
+                    if ($result){
+                        $_SESSION['username'] = $_POST['registerUsername'];
+                    }
+                } else{
+                    header('Location: ../LoginPage/loginPage.php?success=01');
+                    exit();
+                }
+
+                $statement = null;
+                $connection = null;
+            }
+        //    Login Handler ------------------------------------------------------------------------
+            else if(!empty($_POST['loginUsername']) || !empty($_POST['loginPassword'])) {
+                $connection = getConnection();
+                $sql = 'SELECT * FROM users WHERE username = :username';
+                $statement = $connection->prepare($sql);
+                $statement->bindValue(':username', $_POST['loginUsername']);
+                $statement->execute();
+                if ($statement->rowCount() === 1) {
+                    $user = $statement->fetch();
+                    if(password_verify($_POST['loginPassword'], $user['password'])){
+                        $_SESSION['username'] = $_POST['loginUsername'];
+//                        $_SESSION['userAvatar'] = $user['avatar'];
+                    } else{
+                        header('Location: ../LoginPage/loginPage.php?success=02');
+                        exit();
+                    }
+                } else{
+                    header('Location: ../LoginPage/loginPage.php?success=02');
+                    exit();
+                }
+
+                $statement = null;
+                $connection = null;
+
+            }
+        }
+        if(empty($_SESSION['username'])){
+            header('Location: ../LoginPage/loginPage.php');
+            exit();
+        }
 
         $connection = getConnection();
 
         $sql = 'SELECT * FROM users WHERE username = :username';
         $statement = $connection->prepare($sql);
-        $statement->bindValue(':username', $username);
+        $statement->bindValue(':username', $_SESSION['username']);
         $result = $statement->execute();
 
         $userInfo = $statement->fetch();
@@ -118,9 +114,12 @@ session_destroy();
         $userAddress = $userInfo['address'];
         $userNumber = $userInfo['phone_number'];
 
+        $_SESSION['userAvatar'] = $userInfo['avatar'];
+
         $statement = null;
         $connection = null;
 
+        require_once '../HeaderPackage/navigationPage.php';
     ?>
 
     <header id="profileHeader">
@@ -139,7 +138,7 @@ session_destroy();
                     <tr>
                         <td> <label for="username"> Nama </label> </td>
                         <td> : </td>
-                        <td> <input type="text" id="username" value="<?php echo $username ?>" required readonly> </td>
+                        <td> <input type="text" id="username" value="<?php echo $_SESSION['username'] ?>" required readonly> </td>
                     </tr>
                     <tr>
                         <td> <label for="gmail"> Gmail </label> </td>

@@ -23,9 +23,9 @@
                 <h1> Lupa Password </h1>
                 <p> Masukan Gmail anda untuk pemulihan </p>
             </div>
-            <form action="" class="formContainer">
+            <form action="forgotPasswordHandler.php" method="POST" class="formContainer">
                 <div class="inputBox">
-                    <input type="text" name="registerGmail" id="registerGmail" required>
+                    <input type="text" name="email" id="registerGmail" required>
                     <label for="registerGmail"> Gmail </label>
                     <span class="inputIcon"> <ion-icon name="mail-outline"></ion-icon> </span>
                 </div>

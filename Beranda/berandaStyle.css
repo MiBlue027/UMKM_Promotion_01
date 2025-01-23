@@ -169,6 +169,7 @@ main {
 .bestProductTable{
     /*border: solid 2px #0e1537;*/
     border-collapse: collapse;
+    width: 70%;
 }
 .bestProductTable tr{
     /*border: solid 2px #0e1537*/

@@ -50,7 +50,7 @@ if ($insertTransStmt->execute()) {
     $deleteCartStmt = $connection->prepare($sql);
     $deleteCartStmt->bindParam(':userID', $userID);
     if($deleteCartStmt->execute()) {
-        header('Location: cart.php');
+        header('Location: cart.php?success=1');
         exit();
     }
 }

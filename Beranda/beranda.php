@@ -42,15 +42,10 @@ include_once '../HeaderPackage/navigationPage.php';
             <div id="mainLeft">
                 <div id="mainTitle">
                     <h1> Selamat Datang </h1>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores delectus enim fugit iste itaque nobis non optio placeat, ratione. Dignissimos nulla optio quisquam sequi. </p>
+                    <p> Selamat datang di website Kriuk Berbuah! Nikmati perpaduan sempurna antara kerenyahan camilan kriuk dan kesegaran buah pilihan yang siap memanjakan lidah Anda. Temukan berbagai pilihan rasa favorit hanya di sini! </p>
                 </div>
-                <a href="../Product/product.php" id="menuBTN"> Produk </a>
+                <a href="../Product/product.php?variant=<?php echo (!empty($_SESSION['variant'])) ? $_SESSION['variant'] : 'sayur';  ?>" id="menuBTN"> Produk </a>
             </div>
-            <!--                <div id="mainRight">-->
-            <!--                    <div id="rightImage">-->
-            <!--                        <img src="" alt="">-->
-            <!--                    </div>-->
-            <!--                </div>-->
         </div>
     </main>
 </section>
@@ -66,7 +61,7 @@ include_once '../HeaderPackage/navigationPage.php';
 <section id="bestProduct">
     <div id="bestProductTitle">
         <h1> Produk Baru Kami </h1>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, perspiciatis </p>
+        <p> Semua produk baru anda jumpai di sini </p>
     </div>
     <div id="bestProductContent">
 
@@ -99,7 +94,7 @@ include_once '../HeaderPackage/navigationPage.php';
                                         <p> <?php echo $row['product_description'] ?> </p>
                                     </div>
                                     <div class="orderBTN">
-                                        <button> Pesan </button>
+                                        <button onclick="window.location.href = '../Product/item.php?productID=<?php echo $row['id']; ?>'"> Pesan </button>
                                     </div>
                                 </div>
                             </td>
@@ -118,7 +113,7 @@ include_once '../HeaderPackage/navigationPage.php';
                                             <p> <?php echo $row['product_description'] ?> </p>
                                         </div>
                                         <div class="orderBTN">
-                                            <button> Pesan </button>
+                                            <button onclick="window.location.href = '../Product/item.php?productID=<?php echo $row['id']; ?>'" > Pesan </button>
                                         </div>
                                     </div>
                                 </td>
