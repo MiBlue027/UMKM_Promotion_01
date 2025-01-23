@@ -47,6 +47,7 @@ require_once __DIR__ . '/../Database/getConnection.php';
                         <th> total </th>
                         <th> pembayaran </th>
                         <th style="width: 15%"> tanggal pembayaran </th>
+                        <th> ulasan </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,29 +63,73 @@ require_once __DIR__ . '/../Database/getConnection.php';
 
                     $userID = $statement->fetch(PDO::FETCH_ASSOC)['id'];
 
-                    $sql = "SELECT t.payment_method, t.transaction_date, p.product_image, p.product_name, p.variant, p.price, p.product_description, td.quantity FROM transaction t 
+                    $sql = "SELECT td.id AS 'td_id' , t.id, t.payment_method, t.transaction_date, p.product_image, p.product_name, p.variant, p.price, p.product_description, td.quantity FROM transaction t 
                             JOIN transaction_details td ON t.id = td.transaction_id
                             JOIN product p ON td.product_id = p.id                                                                                           
-                            WHERE t.id_user = :user_id;";
+                            WHERE t.id_user = :user_id AND td.testi_status = 0";
                     $statement = $connection->prepare($sql);
                     $statement->bindValue(':user_id', $userID);
                     $statement->execute();
 
                     $numbering = 1;
-                    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    if ($statement->rowCount() > 0) {
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+
+                            <tr>
+                                <td> <?php echo $numbering++ ?>. </td>
+                                <td style="text-align: left"> <img src="<?php echo $row['product_image'] ?>" alt="productImage" class="productImage"> </td>
+                                <td> <h1 class="productTitle"> <?php echo $row['product_name'] ?> </h1> </td>
+                                <td> <p> Rp <?php echo $row['price'] ?> </p> </td>
+                                <td> <?php echo $row['quantity'] ?> </td>
+                                <td> Rp <?php echo $row['price'] * $row['quantity'] ?></td>
+                                <td> <?php echo $row['payment_method'] ?> </td>
+                                <td> <?php echo substr($row['transaction_date'],0, 19)  ?> </td>
+                                <td>
+                                    <form action="../UserReview/userReview.php" method="POST">
+                                        <input type="hidden" name="transactionID" value="<?php echo $row['id']; ?>">
+                                        <input type="hidden" name="transactionDetailID" value="<?php echo $row['td_id']; ?>">
+                                        <button type="submit" class="reviewBTN">Beri Ulasan</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                            <?php
+                        }
+                    }
+                    $sql = "SELECT t.id, t.payment_method, t.transaction_date, p.product_image, p.product_name, p.variant, p.price, p.product_description, td.quantity FROM transaction t 
+                            JOIN transaction_details td ON t.id = td.transaction_id
+                            JOIN product p ON td.product_id = p.id                                                                                           
+                            WHERE t.id_user = :user_id AND td.testi_status = 1;";
+                    $statement = $connection->prepare($sql);
+                    $statement->bindValue(':user_id', $userID);
+                    $statement->execute();
+
+                    if ($statement->rowCount() > 0) {
+                        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
+
+                            <tr>
+                                <td> <?php echo $numbering++ ?>. </td>
+                                <td style="text-align: left"> <img src="<?php echo $row['product_image'] ?>" alt="productImage" class="productImage"> </td>
+                                <td> <h1 class="productTitle"> <?php echo $row['product_name'] ?> </h1> </td>
+                                <td> <p> Rp <?php echo $row['price'] ?> </p> </td>
+                                <td> <?php echo $row['quantity'] ?> </td>
+                                <td> Rp <?php echo $row['price'] * $row['quantity'] ?></td>
+                                <td> <?php echo $row['payment_method'] ?> </td>
+                                <td> <?php echo substr($row['transaction_date'],0, 19)  ?> </td>
+                                <td>
+                                    <span class="doneTestimony"> <ion-icon name="checkmark-done-outline"></ion-icon> </span>
+                                </td>
+                            </tr>
+
+                            <?php
+                        }
+                    } if ($numbering === 1) {
                         ?>
-
                         <tr>
-                            <td> <?php echo $numbering++ ?>. </td>
-                            <td style="text-align: left"> <img src="<?php echo $row['product_image'] ?>" alt="productImage" class="productImage"> </td>
-                            <td> <h1 class="productTitle"> <?php echo $row['product_name'] ?> </h1> </td>
-                            <td> <p> Rp <?php echo $row['price'] ?> </p> </td>
-                            <td> <?php echo $row['quantity'] ?> </td>
-                            <td> Rp <?php echo $row['price'] * $row['quantity'] ?></td>
-                            <td> <?php echo $row['payment_method'] ?> </td>
-                            <td> <?php echo substr($row['transaction_date'],0, 19)  ?> </td>
+                            <td colspan="8" style="font-weight: 550;"> Anda belum melakukan transaksi </td>
                         </tr>
-
                         <?php
                     }
 

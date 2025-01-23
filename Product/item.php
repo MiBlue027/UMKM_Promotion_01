@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../Database/getConnection.php';
 ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -137,7 +138,7 @@ require_once __DIR__ . '/../Database/getConnection.php';
 
             $sql = 'SELECT p.id, p.product_image, p.product_name, p.product_description, p.price FROM product p
                                 JOIN product_details pd ON p.id = pd.product_id
-                                WHERE p.variant = :variant AND p.best_seller = 1 AND pd.stock > 0 AND p.id != :productID;';
+                                WHERE p.variant = :variant AND pd.stock > 0 AND p.id != :productID;';
             $statement = $connection->prepare($sql);
             $statement->bindValue(':variant', $data['variant']);
             $statement->bindValue(':productID', $_GET['productID']);

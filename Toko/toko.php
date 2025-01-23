@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title> Toko </title>
 
     <!--    Google Font ----------------------------------------------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,11 @@
     </div>
     <div class="content">
         <h1 class="judul">Toko Kami</h1>
-        <p class="desc-judul">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum explicabo adipisci id. Ducimus velit qui libero deserunt voluptate dolor nemo delectus repellendus, fugiat fugit saepe eveniet blanditiis quis harum esse illo nostrum. Numquam aliquid neque consequuntur, sequi, nam excepturi quaerat sunt, repellat dicta aut ut vel! Perferendis libero enim labore recusandae eum ut aliquam neque, voluptatum tempora, nostrum ullam sequi voluptates? Cum eveniet, hic numquam iste veritatis dolor maxime quos consectetur velit, voluptatum iusto aperiam provident cumque doloribus quis earum reprehenderit ea porro aut perspiciatis similique exercitationem? Enim veniam a iusto. Dolorem autem libero sed totam repellendus dicta, earum cupiditate.</p>
+        <p class="desc-judul">Toko Kriuk Berbuah pertama kali berdiri di sebuah sudut jalan kecil di Malang. Meski sederhana, toko ini langsung mencuri perhatian karena keunikan produknya. Sugab, sang pemilik, memajang berbagai varian camilan kriuk yang memadukan kerenyahan dan rasa buah-buahan segar khas Malang, seperti apel, stroberi, dan nangka.
+
+            Awalnya, toko ini hanya melayani penduduk lokal, tetapi kabar tentang kelezatan Kriuk Berbuah cepat menyebar. Wisatawan yang berkunjung ke Malang mulai berdatangan, penasaran ingin mencicipi camilan khas ini. Sugab pun menambahkan sentuhan modern pada tokonya, seperti kemasan yang menarik dan ruang kecil untuk menikmati produk langsung di tempat.
+
+            Kini, Toko Kriuk Berbuah tidak hanya menjadi tempat membeli oleh-oleh, tetapi juga menjadi destinasi kuliner yang wajib dikunjungi di Malang. Dengan atmosfer hangat dan pelayanan ramah, toko ini terus menjadi kebanggaan lokal dan simbol kreatifitas kuliner Malang.</p>
         <div class="malang">
             <h3>Kota Malang</h3>
             <img src="../Asset/Toko/toko-mlg.jpg" alt="">

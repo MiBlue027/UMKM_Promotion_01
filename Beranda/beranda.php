@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../Database/getConnection.php';
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -38,15 +42,10 @@ include_once '../HeaderPackage/navigationPage.php';
             <div id="mainLeft">
                 <div id="mainTitle">
                     <h1> Selamat Datang </h1>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores delectus enim fugit iste itaque nobis non optio placeat, ratione. Dignissimos nulla optio quisquam sequi. </p>
+                    <p> Selamat datang di website Kriuk Berbuah! Nikmati perpaduan sempurna antara kerenyahan camilan kriuk dan kesegaran buah pilihan yang siap memanjakan lidah Anda. Temukan berbagai pilihan rasa favorit hanya di sini! </p>
                 </div>
-                <a href="../Product/product.php" id="menuBTN"> Produk </a>
+                <a href="../Product/product.php?variant=<?php echo (!empty($_SESSION['variant'])) ? $_SESSION['variant'] : 'sayur';  ?>" id="menuBTN"> Produk </a>
             </div>
-            <!--                <div id="mainRight">-->
-            <!--                    <div id="rightImage">-->
-            <!--                        <img src="" alt="">-->
-            <!--                    </div>-->
-            <!--                </div>-->
         </div>
     </main>
 </section>
@@ -62,63 +61,79 @@ include_once '../HeaderPackage/navigationPage.php';
 <section id="bestProduct">
     <div id="bestProductTitle">
         <h1> Produk Baru Kami </h1>
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, perspiciatis </p>
+        <p> Semua produk baru anda jumpai di sini </p>
     </div>
     <div id="bestProductContent">
-        <div class="productContainer">
-            <div class="productCard">
-                <img src="../Asset/Products/pisang_durian.jpg" alt="">
-            </div>
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Pisang Durian</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet consequuntur dignissimos distinctio harum id nisi quibusdam quisquam sapiente voluptatibus?
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-        </div>
-        <div class="productContainer">
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Mangga</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid culpa explicabo facere nesciunt, non porro?
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-            <div class="productCard">
-                <img src="../Asset/Products/mangga.jpg" alt="">
-            </div>
-        </div>
-        <div class="productContainer">
-            <div class="productCard">
-                <img src="../Asset/Products/nangka.jpg" alt="">
-            </div>
-            <div class="productInformation">
-                <div class="productTitle">
-                    <h1> Keripik Nangka</h1>
-                </div>
-                <div class="productDescription">
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti esse ipsum laboriosam nesciunt. Doloremque excepturi, fugiat laboriosam modi ratione saepe.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae explicabo nostrum numquam pariatur qui reprehenderit. Architecto aspernatur consectetur illum impedit ipsa nobis provident quibusdam, rerum.
-                    </p>
-                </div>
-                <div class="orderBTN">
-                    <button> Pesan </button>
-                </div>
-            </div>
-        </div>
+
+        <table class="bestProductTable" >
+
+            <?php
+                $connection = getConnection();
+
+                $sql = 'SELECT * FROM product WHERE new = 1';
+                $statement = $connection->prepare($sql);
+                $statement->execute();
+
+                $counter = 1;
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    if ($counter++ % 2 != 0) {
+                        ?>
+
+                        <tr>
+                            <td>
+                                <div class="productCard">
+                                    <img src="<?php echo $row['product_image'] ?>" alt="">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="productInformation">
+                                    <div class="productTitle">
+                                        <h1> <?php echo $row['product_name'] ?> </h1>
+                                    </div>
+                                    <div class="productDescription">
+                                        <p> <?php echo $row['product_description'] ?> </p>
+                                    </div>
+                                    <div class="orderBTN">
+                                        <button onclick="window.location.href = '../Product/item.php?productID=<?php echo $row['id']; ?>'"> Pesan </button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <?php
+                    } else {
+                        ?>
+                            <tr>
+                                <td>
+                                    <div class="productInformationL">
+                                        <div class="productTitle">
+                                            <h1><?php echo $row['product_name'] ?> </h1>
+                                        </div>
+                                        <div class="productDescription">
+                                            <p> <?php echo $row['product_description'] ?> </p>
+                                        </div>
+                                        <div class="orderBTN">
+                                            <button onclick="window.location.href = '../Product/item.php?productID=<?php echo $row['id']; ?>'" > Pesan </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="productCardL">
+                                        <img src="<?php echo $row['product_image'] ?>" alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                }
+
+                $statement = null;
+                $connection = null;
+
+            ?>
+
+        </table>
+
     </div>
 </section>
 

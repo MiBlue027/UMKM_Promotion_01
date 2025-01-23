@@ -51,6 +51,20 @@ require_once __DIR__ . '/../Database/getConnection.php';
     $subTotal = 0;
 
     ?>
+
+<!--    INFORMATION ACTION ---------------------------------------------------------------------------->
+    <?php
+    require_once '../informationAction.php';
+    if (!empty($_GET['success'])) {
+        if ($_GET['success'] === '1') {
+            ?>
+            <script> showIA("Berhasil", "Terima kasih atas transaksi anda di toko kami") </script>
+            <?php
+        }
+    }
+    ?>
+
+<!--    Main Content --------------------------------------------------------------------------------------->
     <div id="wrapper">
         <div id="cartContainer">
             <div id="listBoxContainer">

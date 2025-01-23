@@ -163,6 +163,21 @@ main {
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bestProductTable{
+    /*border: solid 2px #0e1537;*/
+    border-collapse: collapse;
+    width: 70%;
+}
+.bestProductTable tr{
+    /*border: solid 2px #0e1537*/
+}
+.bestProductTable td{
+    max-width: 40em;
+    padding: 3em 0;
+    /*border: solid 2px #0e1537*/
 }
 .productContainer {
     width: 100%;
@@ -173,33 +188,40 @@ main {
 .productCard {
     width: 28em;
     height: 28em;
-    margin: 0 5em 0 15em;
     box-shadow: 0 0 10px rgba(36, 37, 46, 0.62);
     border-radius: 5px;
 }
-
+.productCardL {
+    width: 28em;
+    height: 28em;
+    box-shadow: 0 0 10px rgba(36, 37, 46, 0.62);
+    border-radius: 5px;
+    position: relative;
+    left: 7em;
+}
 .productDescription p {
     text-align: justify;
 }
 
-.productContainer:nth-child(even) {
-    justify-content: end;
-    align-items: start;
-}
-.productContainer:nth-child(even) .productCard {
-    margin: 0 15em 0 5em;
-}
 .productInformation {
     width: 35em;
     text-align: left;
     position: relative;
     top: 0;
 }
-.productInformation h1 {
+.productInformation h1,
+.productInformationL h1{
     font-size: 2.5em;
 }
-.productInformation p {
+.productInformation p,
+.productInformationL p{
     color: #363739;
+}
+.productInformationL {
+    width: 35em;
+    text-align: right;
+    position: relative;
+    top: 0;
 }
 .orderBTN button {
     width: 11em;
@@ -217,3 +239,4 @@ main {
 .orderBTN button:hover {
     background-color: #86baff;
 }
+

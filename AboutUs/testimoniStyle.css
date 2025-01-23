@@ -9,6 +9,14 @@ body{
   overflow-x: hidden;
   background-color: #ebeff8;
 }
+.wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
 h1 {
   font-size: 2.5em;
@@ -28,32 +36,63 @@ p {
   line-height: 1.5em;
 }
 
-#stars i {
+#stars{
   color: gold;
+  font-size: 2em;
+  margin: 0;
 }
 
 hr {
   border: 1px solid silver;
 }
-
-.content {
-  padding: 15vmax;
-  padding-top: 5vmax;
-}
-
-.testimoni {
+.testimonyContainer{
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  margin: 3em;
 }
-
+.testimoni {
+  margin: 2em 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid .2em #242632;
+  padding: 0 0 2em 0;
+  /*background-color: #86baff;*/
+}
+.profileContainer{
+  display: flex;
+}
+.usernameRating{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1.2em;
+}
+.usernameRating h3{
+  margin: 0 0 .3em 0;
+}
 .profile-picture {
   width: 5vmax;
   height: 5vmax;
   border-radius: 100%;
 }
-
 .content-testi {
-  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6em;
+}
+.date {
+  color: #777575;
+  font-style: italic;
+  font-size: 1.2em;
+  margin: 0;
+}
+.review{
+  margin: .3em 0;
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
 .content-testi h3 {
@@ -64,12 +103,7 @@ i {
   padding-bottom: 0.5rem;
 }
 
-.date {
-  color: silver;
-  font-style: italic;
-  font-size: 1.2em;
-  padding-bottom: 0.5rem;
-}
+
 
 .content-testi p {
   padding-bottom: 1rem;

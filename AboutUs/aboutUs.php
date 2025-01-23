@@ -36,18 +36,11 @@
                         <img src="../Asset/AboutUsAsset/Logo Kriuk Berbuah.png" alt="Gambar logo" />
                         <p>
                             <span>Oleh Oleh Khas Malang</span><br />
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero ea
-                            officia, vel magni ad numquam dolor repellendus earum voluptatibus
-                            porro voluptatem qui atque architecto, fugiat sapiente aspernatur?
-                            Necessitatibus facere incidunt nemo maiores corrupti cum placeat
-                            cumque atque dolores saepe excepturi molestias, voluptatibus ex
-                            quae minima distinctio suscipit, quas, eligendi fugiat rerum
-                            inventore? Pariatur, quas nobis veniam quam, veritatis ipsa vero
-                            dicta ipsam, esse exercitationem assumenda ut rem repellat maxime
-                            totam. Laudantium, praesentium doloribus architecto illo
-                            aspernatur sit at, magnam nulla obcaecati perspiciatis ullam.
-                            Ratione vitae adipisci, culpa iste necessitatibus expedita ipsam
-                            possimus quia sequi repudiandae amet! At aliquam aspernatur cum.
+                            Keriuk Berbuah adalah oleh-oleh khas Malang yang menghadirkan perpaduan unik antara kerenyahan camilan kriuk dan kesegaran buah pilihan. Terinspirasi oleh kekayaan alam dan cita rasa lokal, kami berkomitmen untuk menyajikan produk berkualitas tinggi yang tidak hanya lezat, tetapi juga menggambarkan keistimewaan Kota Malang.
+
+                            Setiap produk Keriuk Berbuah dibuat dengan bahan-bahan segar dan alami, diolah dengan cermat untuk memastikan setiap gigitan menghadirkan pengalaman rasa yang autentik. Kami bangga menjadi bagian dari tradisi oleh-oleh khas Malang dan berharap dapat membawa kebahagiaan ke setiap rumah melalui camilan kami.
+
+                            Keriuk Berbuah, pilihan tepat untuk Anda yang ingin membawa pulang rasa khas Malang dalam setiap kriukan!
                         </p>
                     </div>
                 </div>
@@ -108,18 +101,11 @@
                 <div class="description-owner">
                     <p>
                         <span>Tentang owner</span> <br />
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
-                        incidunt minima possimus dolor repellat harum libero sed autem,
-                        exercitationem nemo voluptas nisi itaque. Impedit, pariatur nostrum?
-                        Molestiae nobis natus, officiis perspiciatis est, accusamus alias
-                        eveniet vel, numquam beatae aliquid molestias quo voluptatum! Culpa
-                        eum adipisci sequi magni doloremque architecto a corporis cupiditate
-                        totam tempore reprehenderit, quae ex dignissimos. Sequi facere,
-                        assumenda delectus nesciunt nisi voluptatibus numquam ea obcaecati
-                        nemo eos at alias ullam itaque autem inventore, earum velit
-                        voluptate! Harum, perferendis quaerat rem minus, temporibus deleniti
-                        nobis sit sint architecto odit, velit qui culpa. At ullam saepe quae
-                        veritatis libero?
+                        Sugab, seorang wirausaha muda asal Malang, adalah sosok di balik kesuksesan Keriuk Berbuah. Lahir dan besar di kota yang kaya akan keindahan alam dan buah-buahannya, Sugab memiliki kecintaan mendalam terhadap tradisi dan cita rasa khas daerahnya.
+
+                        Setelah menempuh pendidikan di bidang manajemen bisnis, Sugab terinspirasi untuk menciptakan sesuatu yang dapat membawa kebanggaan lokal ke pasar yang lebih luas. Dari situlah lahir ide Keriuk Berbuah, sebuah inovasi camilan yang memadukan kerenyahan kriuk dengan kesegaran buah-buahan lokal.
+
+                        Dengan fokus pada kualitas dan keaslian rasa, Sugab berhasil menjadikan Keriuk Berbuah sebagai salah satu oleh-oleh khas Malang yang paling digemari. Melalui usahanya, Sugab tidak hanya memperkenalkan kelezatan produk lokal, tetapi juga mengangkat nama Malang sebagai kota yang kaya akan kreativitas kuliner.
                     </p>
                     <div class="owner-detail">
                         <a href="ownerDetail.php"> Selengkapnya </a>

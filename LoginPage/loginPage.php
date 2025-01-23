@@ -19,6 +19,29 @@
     <title> Login </title>
 </head>
 <body>
+
+<!--    INFORMATION ACTION ---------------------------------------------------------------------------->
+<?php
+require_once '../informationAction.php';
+if (!empty($_GET['success'])) {
+    if ($_GET['success'] === '01') {
+        ?>
+        <script> showIA("Gagal", "Username atau email telah terdaftar") </script>
+        <?php
+    } else if ($_GET['success'] === '02') {
+        ?>
+        <script> showIA("Gagal", "Username atau password salah") </script>
+        <?php
+    }  else if ($_GET['success'] === '2') {
+        ?>
+        <script> showIA("Berhasil", "Password anda berhasil diperbarui!") </script>
+        <?php
+    }
+}
+?>
+
+<!--    Main Content --------------------------------------------------------------------------------------->
+
 <div id="wrapper">
 <!--        Login -------------------------------------------------------------------------->
         <div id="loginContainer">

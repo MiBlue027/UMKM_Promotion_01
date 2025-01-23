@@ -26,33 +26,19 @@
         <div class="owner-description">
           <h1>Tentang Owner</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
-            incidunt minima possimus dolor repellat harum libero sed autem,
-            exercitationem nemo voluptas nisi itaque. Impedit, pariatur nostrum?
-            Molestiae nobis natus, officiis perspiciatis est, accusamus alias
-            eveniet vel, numquam beatae aliquid molestias quo voluptatum! Culpa
-            eum adipisci sequi magni doloremque architecto a corporis cupiditate
-            totam tempore reprehenderit, quae ex dignissimos. Sequi facere,
-            assumenda delectus nesciunt nisi voluptatibus numquam ea obcaecati
-            nemo eos at alias ullam itaque autem inventore, earum velit
-            voluptate! Harum, perferendis quaerat rem minus, temporibus deleniti
-            nobis sit sint architecto odit, velit qui culpa. At ullam saepe quae
-            veritatis libero?
+              Sugab Pratama tumbuh di sebuah desa kecil di Malang yang terkenal dengan hasil buah-buahannya. Sejak kecil, ia sering membantu keluarganya memanen buah dan menjualnya di pasar lokal. Meski hidup sederhana, Sugab selalu memiliki mimpi besar: ia ingin memperkenalkan kekayaan buah khas Malang ke dunia.
+
+              Namun, jalannya tidak mudah. Setelah lulus SMA, Sugab harus menunda kuliah karena keterbatasan biaya. Ia pun bekerja serabutan, mulai dari menjadi kuli angkut di pasar hingga menjadi supir ojek. Meski sibuk, Sugab tak pernah melupakan mimpinya. Saat malam tiba, ia sering mencatat ide-ide bisnis di buku kecilnya, berusaha mencari cara bagaimana buah-buahan lokal bisa diolah menjadi sesuatu yang unik.
+
+              Suatu hari, saat sedang makan keripik singkong, ide itu muncul: bagaimana jika kerenyahan camilan kriuk dipadukan dengan rasa segar buah-buahan? Sugab mulai bereksperimen di dapur kecilnya dengan bahan-bahan sederhana. Setelah berbulan-bulan mencoba dan gagal, ia akhirnya menemukan resep yang pas. Ia memberi nama produknya Keriuk Berbuah.
           </p>
 
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto natus
-            vitae commodi, libero cumque voluptatem. Architecto numquam ab
-            veritatis doloremque corporis corrupti exercitationem ipsam expedita
-            asperiores illum quasi nulla veniam, ut modi eligendi et voluptatem
-            officiis iure mollitia beatae hic soluta dolor laboriosam cum!
-            Laborum illo numquam explicabo illum cupiditate modi possimus
-            distinctio eaque fugit laboriosam aperiam ad sit quas ratione
-            accusamus unde, soluta esse repellat molestiae voluptates odit ex
-            doloremque blanditiis ipsum. Id, asperiores vero. Officiis voluptate
-            ipsa dolores ad explicabo dolorem accusamus iure nulla laborum,
-            libero quae nihil quod. Magnam quo natus sit perspiciatis esse ipsa,
-            tempore voluptatum.
+              Dengan modal kecil dan tekad besar, Sugab memulai usahanya. Ia menjual Keriuk Berbuah di pasar-pasar lokal dan menitipkannya di toko oleh-oleh. Awalnya, penjualannya tidak terlalu bagus, tetapi Sugab tidak menyerah. Ia terus memperbaiki kemasan, rasa, dan cara pemasarannya. Perlahan, produk Keriuk Berbuah mulai dikenal orang, terutama karena keunikan dan cita rasanya yang khas.
+
+              Puncaknya, Sugab memberanikan diri mengikuti pameran UMKM tingkat nasional. Di sana, Keriuk Berbuah mendapat sambutan luar biasa, bahkan menarik perhatian investor yang tertarik membantu mengembangkan bisnisnya. Kini, Keriuk Berbuah telah menjadi salah satu oleh-oleh khas Malang yang terkenal, bahkan mulai dipasarkan ke kota-kota besar di Indonesia.
+
+              Sugab selalu percaya bahwa kunci kesuksesan adalah kerja keras, kesabaran, dan keberanian untuk mencoba hal baru. Dari seorang pemuda desa yang penuh mimpi, ia berhasil membangun bisnis yang tidak hanya mengangkat dirinya, tetapi juga mempromosikan keindahan dan kekayaan Malang kepada dunia. Sugab sering berkata, "Kesuksesan bukan soal besar atau kecilnya langkah pertama, tapi soal seberapa jauh kita mau berjalan untuk meraih impian."
           </p>
         </div>
         <div class="owner-gambar">
