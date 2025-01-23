@@ -106,4 +106,9 @@ body{
     border: none;
     border-radius: 15px;
     margin: 2em 2em 0 2em;
+    cursor: pointer;
+    transition: .4s;
+}
+#formSubmit:hover{
+    background-color: #86baff;
 }

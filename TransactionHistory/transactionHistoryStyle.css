@@ -76,3 +76,35 @@ body {
     font-size: 1.5em;
     color: #227de6;
 }
+.paginationInformation{
+    margin-bottom: .8em;
+}
+.pagination{
+    margin: 0 0 3.5em 0;
+    display: flex;
+    align-items: center;
+}
+.gotoPageContainer{
+    margin: 0 1em;
+}
+#gotoPage{
+    width: 2em;
+    height: 2em;
+    text-align: center;
+}
+.paginationButton{
+    color: #131720;
+    background-color: #fbfbff;
+    padding: .8em ;
+    box-shadow: 0 0 3px rgba(20, 22, 27, 0.44);
+    margin: 0 .2em;
+    cursor: pointer;
+}
+.paginationButtonDisable{
+    color: #e8e8eb;
+    background-color: #a3a3a4;
+    padding: .8em ;
+    box-shadow: 0 0 3px rgba(20, 22, 27, 0.44);
+    margin: 0 .2em;
+    pointer-events: none;
+}
