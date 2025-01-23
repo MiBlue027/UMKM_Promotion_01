@@ -44,7 +44,7 @@ $data = $data ?? [
 <body>
     <h1><?= $id ? "Update Produk" : "Tambah Produk" ?></h1>
 
-    <form method="POST" action="simpanProduk.php">
+    <form method="POST" action="simpanProduk.php" enctype="multipart/form-data">
         <!-- Field ID untuk update -->
         <input type="hidden" name="id" value="<?= $data['id'] ?>">
 

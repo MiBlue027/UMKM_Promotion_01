@@ -9,32 +9,46 @@ $price = $_POST['price'] ?? 0;
 $product_description = $_POST['product_description'] ?? '';
 $new = isset($_POST['new']) ? 1 : ($id ? 0 : 1);
 $stock = $_POST['stock'] ?? 0;
-$product_image = $_FILES['product_image'] ?? '';
 
-// Path untuk upload gambar
-$uploadDir = __DIR__ . '/../../Asset/Products/';
-$productImage = '';
+// Tentukan folder tempat menyimpan file
+$targetDirectory = __DIR__ . '/../../Asset/Products/uploads/';
 
-if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
-    // Membuat folder jika belum ada
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0755, true);
-    }
-
-    $fileName = uniqid() . '-' . basename($_FILES['product_image']['name']);
-    $productImage = $uploadDir . $fileName; // Lokasi penyimpanan di server
-    $relativePath = 'Asset/Products/uploads/' . $fileName; // Path relatif untuk disimpan di database
-
-    // Cek apakah file berhasil dipindahkan
-    if (!move_uploaded_file($_FILES['product_image']['tmp_name'], $productImage)) {
-        die('Gagal memindahkan file. Pastikan folder memiliki izin tulis.');
-    }
-} else {
-    $relativePath = null; // Tidak ada gambar yang diunggah
+// Periksa apakah folder sudah ada, jika tidak, buat folder
+if (!is_dir($targetDirectory)) {
+    mkdir($targetDirectory, 0755, true);
 }
 
+// Inisialisasi variabel untuk menyimpan path gambar
+$relativePath = null;
+
+// Periksa apakah ada file yang diunggah
+if (isset($_FILES['product_image']) && $_FILES['product_image']['error'] === UPLOAD_ERR_OK) {
+    $file = $_FILES['product_image'];
+    $fileName = uniqid() . '-' . basename($file['name']);
+    $targetFilePath = $targetDirectory . $fileName; // Full path for saving the image
+    $relativePath = '../Asset/Products/uploads/' . $fileName; // Relative path for database
+    $fileType = mime_content_type($file['tmp_name']); // Dapatkan tipe MIME file
+
+    // Periksa apakah file adalah gambar
+    $allowedTypes = ['image/jpeg', 'image/png', 'image/gif']; // Add more types if needed
+    if (in_array($fileType, $allowedTypes)) {
+        // Pindahkan file ke folder tujuan
+        if (move_uploaded_file($file['tmp_name'], $targetFilePath)) {
+            echo "Gambar berhasil diunggah!<br>";
+            echo "Path file: " . $targetFilePath;
+        } else {
+            die("Terjadi kesalahan saat mengunggah gambar.");
+        }
+    } else {
+        die("File yang diunggah bukan gambar. Harap unggah file gambar.");
+    }
+} else {
+    die("Tidak ada file yang diunggah.");
+}
+
+// Store the relative path in the database
 if ($id) {
-    // Update data jika ID tersedia
+    // Update existing record
     $statement = $connection->prepare("
         UPDATE product 
         SET product_name = :product_name, variant = :variant, price = :price, product_description = :product_description, new = :new, product_image = COALESCE(:product_image, product_image)
@@ -57,8 +71,9 @@ if ($id) {
     $statement->bindValue(':id', $id, PDO::PARAM_INT);
     $statement->bindValue(':stock', $stock);
     $statement->execute();
+    echo "Data berhasil diperbarui .";
 } else {
-    // Insert data baru jika ID tidak tersedia
+    // Insert new record
     $statement = $connection->prepare("
         INSERT INTO product (product_name, variant, price, product_description, new, product_image) 
         VALUES (:product_name, :variant, :price, :product_description, :new, :product_image)
@@ -70,6 +85,7 @@ if ($id) {
     $statement->bindValue(':new', $new, PDO::PARAM_INT);
     $statement->bindValue(':product_image', $relativePath); // Menggunakan path relatif
     $statement->execute();
+    echo "Data berhasil disimpan.";
 
     $newProductId = $connection->lastInsertId();
 
@@ -83,5 +99,5 @@ if ($id) {
 }
 
 // Redirect ke halaman dashboard produk setelah selesai
-header('Location: ../ManageProduk/dashboardProduk.php');
+header("Location: ../ManageProduk/dashboardProduk.php");
 exit;
