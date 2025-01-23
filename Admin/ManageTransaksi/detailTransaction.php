@@ -41,17 +41,54 @@ if ($id) {
             font-family: "Poppins", Arial, Helvetica, sans-serif;
         }
 
-        .main_title {
-            color: #529ce8;
-            font-size: 2.5rem;
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: fit-content;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            height: 5em;
+            background-color: #2f2f35;
             text-align: center;
-            margin-bottom: 0;
+            padding: 1em 0;
+        }
+
+        header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #86baff;
+            text-shadow: 0 0 3px #ffffff;
         }
 
         .container {
             width: 90vmax;
             position: relative;
             margin: 0 auto;
+        }
+
+        .main_title {
+            color: #529ce8;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
         }
 
         table {
@@ -81,11 +118,10 @@ if ($id) {
 <body>
     <header>
         <h1>Detail Transaksi</h1>
-        <br>
         <a href="dashboardTransaction.php">Kembali ke Transaksi</a>
     </header>
     <div class="container">
-        <h1 class="main_title">Detail Transaksi ID: <?php echo htmlspecialchars($transaction['id']); ?></h1>
+        <h1 class="main_title">Transaksi ID: <?php echo htmlspecialchars($transaction['id']); ?></h1>
         <p><strong>Username:</strong> <?php echo htmlspecialchars($transaction['id_user']); ?></p>
         <p><strong>Payment Method:</strong> <?php echo htmlspecialchars($transaction['payment_method']); ?></p>
         <p><strong>Transaction Date:</strong> <?php echo htmlspecialchars($transaction['transaction_date']); ?></p>

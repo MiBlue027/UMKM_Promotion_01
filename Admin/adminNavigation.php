@@ -39,12 +39,16 @@ if (empty($_SESSION['admin'])) {
             align-items: center;
             justify-content: space-between;
             padding: 0 2em;
+            height: 100%;
+            /* Pastikan kontainer mengisi tinggi header */
         }
 
         .adminNav {
             display: flex;
             justify-content: space-evenly;
             width: 75em;
+            margin-top: 0.5em;
+            /* Menambahkan margin atas untuk memberi jarak dari garis hitam */
         }
 
         .adminNav a {
@@ -86,6 +90,7 @@ if (empty($_SESSION['admin'])) {
         <div class="adminNavContainer">
             <h1 id="adminName"> <?php echo $_SESSION['admin'] ?> </h1>
             <nav class="adminNav">
+                <a href="..\AdminDashboard\adminDashboard.php">Dashboard</a>
                 <a href="..\ManageProduk\dashboardProduk.php">Produk</a>
                 <a href="..\ManageGallery\dashboardGallery.php">Galery</a>
                 <a href="..\ManageTestimoni\dashboardTestimoni.php">Testimoni</a>
@@ -95,7 +100,6 @@ if (empty($_SESSION['admin'])) {
             </nav>
             <button id="adminLogout" onclick="window.location.href = '../adminLogoutHandler.php' "> Logout </button>
         </div>
-
     </header>
 </body>
 

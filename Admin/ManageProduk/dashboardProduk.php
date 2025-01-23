@@ -81,7 +81,6 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         img {
             max-width: 100px;
-            /* Limit image width */
             height: auto;
             border-radius: 4px;
         }
@@ -110,7 +109,6 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            /* Space between buttons */
         }
 
         .action-buttons a {

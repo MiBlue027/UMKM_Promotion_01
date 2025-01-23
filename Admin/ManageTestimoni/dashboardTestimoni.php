@@ -16,14 +16,17 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
-    <link rel="stylesheet" href="Footer/footerPageStyle.css">
+
     <title>Admin Testimoni</title>
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <style>
         * {
             font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -147,7 +150,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <td><img src="<?php echo htmlspecialchars($data['image2']); ?>" alt="Image 2" width="50"></td>
                             <td><?php echo $data['visibility'] ? 'Visible' : 'Hidden'; ?></td>
                             <td>
-                                <a href="formCreateUpdateTestimoni.php?id=<?php echo $data['id']; ?>">Edit</a>
+                                <a href="formCreateUpdateTestimoni.php?id=<?php echo $data['id']; ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
                             </td>
                         </tr>
                     <?php

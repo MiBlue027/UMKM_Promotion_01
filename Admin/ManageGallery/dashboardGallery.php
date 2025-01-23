@@ -72,7 +72,6 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         img {
             max-width: 100px;
-            /* Limit image width */
             height: auto;
             border-radius: 4px;
         }
@@ -95,6 +94,22 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         .tambah a:hover {
             background-color: #86baff;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .action-buttons a {
+            color: #529ce8;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .action-buttons a:hover {
+            color: #86baff;
         }
 
         header {
@@ -132,7 +147,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <th>Judul</th>
                         <th>Artikel</th>
                         <th>Gambar</th>
-                        <th>Trending</th>
+                        <th>Trending</t>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -143,12 +158,14 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <td><?php echo $data['id']; ?></td>
                             <td><?php echo htmlspecialchars($data['title']); ?></td>
-                            <td><?php echo htmlspecialchars($data['article']); ?></td>
+                            <td style="text-align:justify;"><?php echo htmlspecialchars($data['article']); ?></td>
                             <td><img src="../<?php echo $data['image']; ?>" alt="gambar"></td>
                             <td><?php echo $data['trending'] ? 'Ya' : 'Tidak'; ?></td>
                             <td>
-                                <a href="formCreateUpdateGallery.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
-                                <a href="deleteGallery.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
+                                <div class="action-buttons">
+                                    <a href="formCreateUpdateGallery.php?id=<?= $data['id'] ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
+                                    <a href="deleteGallery.php?id=<?= $data['id'] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class='bx bxs-trash bx-md'></i></a>
+                                </div>
                             </td>
                         </tr>
                     <?php

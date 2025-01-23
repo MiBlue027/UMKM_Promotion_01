@@ -118,18 +118,22 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <th>Username</th>
                         <th>Payment Method</th>
                         <th>Transaction Date</th>
+                        <th>Total</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     foreach ($result as $data) {
+                        $total = $data['total'];
+                        $total_format = number_format($total, 0, ',', '.');
                     ?>
                         <tr>
                             <td><?php echo $data['id']; ?></td>
                             <td><?php echo htmlspecialchars($data['username']); ?></td>
                             <td><?php echo htmlspecialchars($data['payment_method']); ?></td>
                             <td><?php echo htmlspecialchars($data['transaction_date']); ?></td>
+                            <td><?php echo "Rp. " . $total_format; ?></td>
                             <td>
                                 <a href="detailTransaction.php?id=<?php echo $data['id']; ?>" class="view-detail">Lihat Detail</a>
                             </td>
