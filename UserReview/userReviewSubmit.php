@@ -76,7 +76,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Koneksi ke database
     $connection = getConnection();
 
     // Ambil ID pengguna
@@ -104,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($statement->execute()){
             $statement = null;
             $connection = null;
-            header('location: userReview.php');
+            header('location: ../TransactionHistory/transactionHistory.php?success=1');
             exit();
         }
     }

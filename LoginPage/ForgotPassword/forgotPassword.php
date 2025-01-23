@@ -16,6 +16,22 @@
     <title> Forgot Password </title>
 </head>
 <body>
+
+<!--    INFORMATION ACTION ---------------------------------------------------------------------------->
+<?php
+require_once '../../informationAction.php';
+
+if (!empty($_GET['success'])) {
+    if ($_GET['success'] === '00') {
+        ?>
+        <script> showIA("Gagal", "Gagal verifikasi gmail") </script>
+        <?php
+    }
+}
+?>
+
+<!--    Main Content --------------------------------------------------------------------------------------->
+
     <div id="wrapper">
         <div id="forgotPasswordContainer">
             <span class="backIcon" onclick="window.location.href = '../loginPage.php'"> <ion-icon name="chevron-back-circle-outline"></ion-icon> </span>

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $statement->execute();
 
     if ($statement->rowCount() !== 1) {
-        header('Location: forgotPassword.php');
+        header('Location: forgotPassword.php?success=00');
         exit();
     }
 
