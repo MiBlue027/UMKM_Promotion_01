@@ -23,7 +23,7 @@ $outOfStock = $outOfStockStatement->fetch(PDO::FETCH_ASSOC)['total'];
 
 // Bestseller
 $bestsellerStatement = $connection->prepare("
-    SELECT product.product_name, product_details.total_order, product_details.stock 
+    SELECT product.id, product.product_name, product_details.total_order, product_details.stock 
     FROM product_details 
     JOIN product ON product_details.product_id = product.id 
     ORDER BY product_details.total_order DESC 
@@ -41,17 +41,19 @@ $productsStatement = $connection->prepare("
 $productsStatement->execute();
 $products = $productsStatement->fetchAll(PDO::FETCH_ASSOC);
 
-// Transaksi Terkini
 $recentTransactionsStatement = $connection->prepare("
-    SELECT transaction.id, transaction.transaction_date, users.username 
-    FROM transaction 
-    JOIN users ON transaction.id_user = users.id 
-    ORDER BY transaction.transaction_date DESC 
+    SELECT t.id, t.transaction_date, u.username, 
+           SUM(td.quantity * p.price) as total 
+    FROM transaction t
+    JOIN users u ON t.id_user = u.id 
+    LEFT JOIN transaction_details td ON t.id = td.transaction_id
+    LEFT JOIN product p ON td.product_id = p.id
+    GROUP BY t.id, t.transaction_date, u.username
+    ORDER BY t.transaction_date DESC 
     LIMIT 5
 ");
 $recentTransactionsStatement->execute();
 $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 <!doctype html>
@@ -91,6 +93,7 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="card">
                 <h2>Bestseller</h2>
+                <p>id: <?php echo $bestseller['id']; ?> </p>
                 <p><?php echo htmlspecialchars($bestseller['product_name']); ?></p>
                 <p>Order: <?php echo $bestseller['total_order']; ?></p>
                 <p>Stock: <?php echo $bestseller['stock']; ?></p>
@@ -127,6 +130,7 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID Transaksi</th>
                         <th>Tanggal Transaksi</th>
                         <th>Username</th>
+                        <th>Total Belanja</th> <!-- New column for total -->
                     </tr>
                 </thead>
                 <tbody>
@@ -135,6 +139,7 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($transaction['id']); ?></td>
                             <td><?php echo htmlspecialchars($transaction['transaction_date']); ?></td>
                             <td><?php echo htmlspecialchars($transaction['username']); ?></td>
+                            <td>Rp <?php echo number_format($transaction['total'], 0, ',', '.'); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

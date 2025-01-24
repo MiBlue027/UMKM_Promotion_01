@@ -146,8 +146,8 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($data['transaction_id']); ?></td>
                             <td><?php echo htmlspecialchars($data['rating']); ?></td>
                             <td><?php echo htmlspecialchars($data['review']); ?></td>
-                            <td><img src="<?php echo htmlspecialchars($data['image1']); ?>" alt="Image 1" width="50"></td>
-                            <td><img src="<?php echo htmlspecialchars($data['image2']); ?>" alt="Image 2" width="50"></td>
+                            <td><img src="<?php echo htmlspecialchars("../" . $data['image1']); ?>" alt="Image 1" width="50"></td>
+                            <td><img src="<?php echo htmlspecialchars("../" . $data['image2']); ?>" alt="Image 2" width="50"></td>
                             <td><?php echo $data['visibility'] ? 'Visible' : 'Hidden'; ?></td>
                             <td>
                                 <a href="formCreateUpdateTestimoni.php?id=<?php echo $data['id']; ?>"><i class='bx bxs-edit-alt bx-md'></i></a>
