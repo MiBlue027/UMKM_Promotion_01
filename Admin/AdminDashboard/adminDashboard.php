@@ -8,7 +8,11 @@ $totalTransactionStatement->execute();
 $totalTransaction = $totalTransactionStatement->fetch(PDO::FETCH_ASSOC)['total'];
 
 // Total Pendapatan
-$totalRevenueStatement = $connection->prepare("SELECT SUM(total) as total FROM transaction");
+$totalRevenueStatement = $connection->prepare("
+    SELECT SUM(td.quantity * p.price) as total 
+    FROM transaction_details td 
+    JOIN product p ON td.product_id = p.id
+");
 $totalRevenueStatement->execute();
 $totalRevenue = $totalRevenueStatement->fetch(PDO::FETCH_ASSOC)['total'];
 
@@ -39,7 +43,7 @@ $products = $productsStatement->fetchAll(PDO::FETCH_ASSOC);
 
 // Transaksi Terkini
 $recentTransactionsStatement = $connection->prepare("
-    SELECT transaction.id, transaction.transaction_date, users.username, transaction.total 
+    SELECT transaction.id, transaction.transaction_date, users.username 
     FROM transaction 
     JOIN users ON transaction.id_user = users.id 
     ORDER BY transaction.transaction_date DESC 
@@ -60,10 +64,9 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Dashboard </title>
 
-    <!--    Google Font ----------------------------------------------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="adminDashboardStyle.css">
 
@@ -124,7 +127,6 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
                         <th>ID Transaksi</th>
                         <th>Tanggal Transaksi</th>
                         <th>Username</th>
-                        <th>Total Belanja</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -133,7 +135,6 @@ $recentTransactions = $recentTransactionsStatement->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($transaction['id']); ?></td>
                             <td><?php echo htmlspecialchars($transaction['transaction_date']); ?></td>
                             <td><?php echo htmlspecialchars($transaction['username']); ?></td>
-                            <td>Rp <?php echo number_format($transaction['total'], 0, ',', '.'); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

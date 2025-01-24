@@ -125,7 +125,17 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <tbody>
                     <?php
                     foreach ($result as $data) {
-                        $total = $data['total'];
+                        // Calculate total for each transaction
+                        $transactionId = $data['id'];
+                        $totalStatement = $connection->prepare("
+                            SELECT SUM(td.quantity * p.price) as total 
+                            FROM transaction_details td 
+                            JOIN product p ON td.product_id = p.id 
+                            WHERE td.transaction_id = :transaction_id
+                        ");
+                        $totalStatement->bindValue(':transaction_id', $transactionId, PDO::PARAM_INT);
+                        $totalStatement->execute();
+                        $total = $totalStatement->fetch(PDO::FETCH_ASSOC)['total'];
                         $total_format = number_format($total, 0, ',', '.');
                     ?>
                         <tr>

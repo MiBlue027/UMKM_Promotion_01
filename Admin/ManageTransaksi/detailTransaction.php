@@ -32,9 +32,6 @@ if ($id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="indexStyle.css">
-    <link rel="stylesheet" href="HeaderPackage/headerStyle.css">
-    <link rel="stylesheet" href="Footer/footerPageStyle.css">
     <title>Detail Transaksi</title>
     <style>
         * {
@@ -134,17 +131,21 @@ if ($id) {
                     <th>Nama Produk</th>
                     <th>Quantity</th>
                     <th>Status Testimoni</th>
+                    <th>Total</th> <!-- New column for total price -->
                 </tr>
             </thead>
             <tbody>
                 <?php
                 foreach ($details as $detail) {
+                    $totalPrice = $detail['quantity'] * $detail['price'];
+                    $totalPriceFormatted = number_format($totalPrice, 0, ',', '.');
                 ?>
                     <tr>
                         <td><?php echo htmlspecialchars($detail['product_id']); ?></td>
                         <td><?php echo htmlspecialchars($detail['product_name']); ?></td>
                         <td><?php echo htmlspecialchars($detail['quantity']); ?></td>
                         <td><?php echo htmlspecialchars($detail['testi_status']); ?></td>
+                        <td><?php echo "Rp. " . $totalPriceFormatted; ?></td> <!-- Display total price -->
                     </tr>
                 <?php
                 }
